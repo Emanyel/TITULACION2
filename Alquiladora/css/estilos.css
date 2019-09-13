@@ -1,0 +1,199 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Gayathri', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.a-link{
+    color: white;
+    font-size: 13px;
+    margin: 0px 10px;
+    letter-spacing: 2px;
+    
+}
+
+.a-logo{
+    color: white;
+    font-family: 'Black Han Sans', sans-serif;
+    letter-spacing: 5px;
+    font-size: 18px;
+}
+
+.a-link:hover{
+    border-bottom: 2px solid white;
+}
+
+.nav-logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+.landing{
+    background-image: url('../img/imagen-fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h-landing, .a-landing, .p-landing{
+    color: white;
+    font-weight: 100;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.h-landing{
+    margin-bottom: 10px;
+}
+
+.p-landing{
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.a-landing{
+    background: #4BAEA0;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 13px;
+}
+
+.a-landing:hover{
+    background: rgb(36, 85, 78);
+}
+
+.vacio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nosotros-1{
+    background-image: url('../img/nosotros-img.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nosotros-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 50px solid #4BAEA0;
+}
+
+.h-noso{
+    color: #707070;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+.h-nosotros{
+    color: #707070;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+.p-nosotros{
+    color: #707070;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.servicios-1, .servicios-2, .servicios-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-servicios{
+    width: 200px;
+}
+
+.p-servicios{
+    color: #707070;
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.cotizar{
+    background-image: url('../img/img-cotiza.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contacto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    border: 1px solid #707070;
+    margin-top: 50px;
+}
+
+.p-form{
+    color: #707070;
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#nombre, #correo, #mensaje{
+    width: 300px;
+    margin: 20px 0px;
+}
+
+#mensaje{
+    height: 100px;
+}
+
+#btn-form{
+    margin: 20px 0px;
+}
