@@ -175,6 +175,7 @@ a{
     width: 500px;
     border: 1px solid #707070;
     margin-top: 50px;
+    border-radius: 15px;
 }
 
 .p-form{
@@ -197,3 +198,4 @@ a{
 #btn-form{
     margin: 20px 0px;
 }
+
