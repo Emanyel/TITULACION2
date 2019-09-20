@@ -5,8 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>COTIZAR</title>
+    <link rel="stylesheet" href="css/estilos-app.css">
+    <link href="https://fonts.googleapis.com/css?family=Gayathri:100,400,700&display=swap" rel="stylesheet"> 
 </head>
+
 <body>
+    <div class="contenedor-1">
+            <h2>SELECCIONA LOS SERVICIOS DE TU INTERÉS:</h2>
+        <div class="seccion-menu">
+            
+            <input type="button" value="SILLAS Y MESAS" class="btn" onclick="ocultaUno()">
+            <input type="button" value="ENTRETENIMIENTO" class="btn" onclick="ocultaDos()">
+            <input type="button" value="CUBIERTOS" class="btn" onclick="ocultaTres()">
+            <input type="button" value="MÚSICA" class="btn" onclick="ocultaCuatro()">
+            <input type="button" value="SALÓN" class="btn" onclick="ocultaCinco()">               
+        </div>
+    </div>
     
+    <div class="contenedor-2">
+            <div class="cajas" id="caja-1">1</div>
+            <div class="cajas" id="caja-2">2</div>
+            <div class="cajas" id="caja-3">3</div>
+            <div class="cajas" id="caja-4">4</div>
+            <div class="cajas" id="caja-5">5</div>
+    </div>
+
+    <script src="/Alquiladora/js/acordeon.js"></script>
+
 </body>
 </html>
