@@ -1,5 +1,5 @@
 <?php
-include_once 'conexion.php';
+//include_once 'conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +40,26 @@ include_once 'conexion.php';
       </nav>
 
       <div class="div container p-4">
-		  <div class="row">
+		  <div class="row ">
 			  <div class="card">
-				  <div class="form-group">
-				  <form action="/php/login.php" method="POST">
-					<input type="text" name="nombre_usuario">
-					<input type="password" name="password">
-					<button class="btn btn-success">LOGIN</button>
-				  </div>
+          <div class="card-title x-auto">
+          <h4>Inicia sesion</h4>
+          <div class="card-body">
+            <div class="form-group">
+            <form action="/php/login.php" method="POST">
+            <div class="form-group">
+            <input type="text" name="nombre_usuario" placeholder="Escribe tu nombre">
+            </div>
+            <div class="form-group">
+            <input type="password" name="password" placeholder="Escribe tu contrasena">
+            </div>
+              <div class="form-group">
+              <button class="btn btn-success">LOGIN</button>
+              </div>
+            </form>
+            </div>
+          </div>
+				</div>
 			  
 		  </form>  
 			  </div>
