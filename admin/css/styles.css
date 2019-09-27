@@ -7,7 +7,7 @@
 }
 
 body{
-  background: #128cc9;
+  background: #c91221;
 }
 
 .wrap{
@@ -24,7 +24,7 @@ body{
 }
 
 .tarjeta-wrap{
-	margin: 10px;
+	margin: 5px;
 	-webkit-perspective: 800;
 	perspective: 800;
 }
@@ -77,7 +77,7 @@ body{
 
 	text-align: center;*/
 	color: rgb(0, 0, 0);
-	font-family: "open sans";
+	font-family: "";
   background: #ffe2e2;
 }
 
