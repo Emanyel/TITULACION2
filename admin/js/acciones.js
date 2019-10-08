@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-    $("#boton").click(function(){
+	$(".button2").click(function(){
         Swal.fire({
 			title: 'Estas seguro?',
 			text: "Elimina eventos solo cuando ya se hayan realizado, si lo borras no podras deshacer esta accion!",
@@ -26,13 +26,54 @@ $(document).ready(function(){
 			  )
 			}
 		  })
+
+		  	
 	});
 	
+	$(".button1").click(function(){
+		
+		Swal.fire({
+			title: "Abrir pestana nueva?",
+			text: "Para poder editar la parte trasera de la tarjeta se necesita abrir una nueva pestana. Quieres hacerlo?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Si, ir a la pestana',
+			cancelButtonText: 'Solo editar la parte frontal',
+			
+		  }).then((result) => {
+			if (result.value) {
+				window.open('./parteTrasera.html', '_blank')
+			}
+		  })
+	});
+
+	$("#cancelar").click(function(){
+			$("input[type=text]").val('');
+			$("input[type=number]").val('');
+			$("input[type=date]").val('');
+			//REGRESAMOS A LA VISTA INICIAL
+			Swal.fire({
+				type: 'success',
+				title: 'Hecho, los cambios han sido efectuados!',
+				showConfirmButton: false,
+				timer: 1500
+			})
+			window.close('./parteTrasera.html', '_blank')
+
+	});
+
+	$("#guardar").click(function(){
+	});
 
 	function borrar(){
-		$("#Card").replaceWith("<div id='Card'><div class='tarjeta-wrap' style='float: left;'  id='tarjeta-wrap'></div></div>")
+
 	}
 
-	
+	function validarTarjeta(){
+		
+	}
+
 
 });
