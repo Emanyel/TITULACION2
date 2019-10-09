@@ -1,79 +1,43 @@
+$(function(){
+var tarjeta = 
+"<div class='container p-3'>"+
+"<button class='btn btn-success' id ='boton' onclick='eliminar();'>Eliminar</button>"
+"<button class='btn btn-success' id ='boton' onclick='editar();'>Editar</button>"
++"</div>"
+				+"</div>"
+					+"<div class='tarjeta-wrap' style='float: left;'>"
+						+"<div class='tarjeta'>"
+								+"<div class='adelante card1'>"
+										+"<div class='card-block' >"
+											+"<img src='../img/1.jpg' class='card-img-top' alt='ilustracion' style=' height: 8rem; width: fill;'>"
+											+"<div class='card-body'>"
+												+"h5 class='card-title' id='eventos'>Nombre del Evento </h5>"
+												+"h6 class='card-subtitle mb-2 text-muted'> $$ Precio</h6>"
+												+"p class='card-text' id='lugar'>Lugar:</p>"
+												+"p class='card-text' id='hora'>Hora: </p>"
+											+"</div>"
+										+"</div>"
+									+"<div class='card-footer'>"
+										+"small class='text-muted'>Last updated 3 mins ago</small>"
+									+"</div>"
+								+"</div> <!-- FIN DE ADELANTE -->"
+									+"<div class='atras'>"
+										+"<div class='card-block'>"
+												+"<div class='card-body'>"
+													+"<h4 class='card-title' id='eventoAtras'>Nombre del evento</h5>"
+													+"<p class='card-text' id='solicitante'>Nombre del solicitante</p>"
+													+"<p class='card-text' id='noEmpleados'>Empleados</p>"
+													+"<p class='card-text' id='recursos'>Mesas y sillas</p>"
+													+"<p class='card-text' id='entretenimiento'>Entretenimiento</p>"
+													+"<p class='card-text' id='musica'>Musica</p>"
+													+"<p class='card-text' id='extras'>Extras</p>"
+												+"</div>"
+										+"</div>"
+									+"</div>"
+						+"</div>" 
+                    +"</div>";
 
-
-$(document).ready(function(){
-
-	$(".button2").click(function(){
-        Swal.fire({
-			title: 'Estas seguro?',
-			text: "Elimina eventos solo cuando ya se hayan realizado, si lo borras no podras deshacer esta accion!",
-			type: 'warning',
-			showCancelButton: true,
-			confirmButtonColor: '#3085d6',
-			cancelButtonColor: '#d33',
-			confirmButtonText: 'Si, borrar evento!',
-			cancelButtonText: 'Cancelar',
-			animation: false,
-			customClass: {
-				popup: 'animated tada'
-			},
-		  }).then((result) => {
-			if (result.value) {
-				borrar();
-			  Swal.fire(
-				'Hecho!',
-				'El evento fue borrado',
-				'success'
-			  )
-			}
-		  })
-
-		  	
-	});
-	
-	$(".button1").click(function(){
-		
-		Swal.fire({
-			title: "Abrir pestana nueva?",
-			text: "Para poder editar la parte trasera de la tarjeta se necesita abrir una nueva pestana. Quieres hacerlo?",
-			type: 'warning',
-			showCancelButton: true,
-			confirmButtonColor: '#3085d6',
-			cancelButtonColor: '#d33',
-			confirmButtonText: 'Si, ir a la pestana',
-			cancelButtonText: 'Solo editar la parte frontal',
-			
-		  }).then((result) => {
-			if (result.value) {
-				window.open('./parteTrasera.html', '_blank')
-			}
-		  })
-	});
-
-	$("#cancelar").click(function(){
-			$("input[type=text]").val('');
-			$("input[type=number]").val('');
-			$("input[type=date]").val('');
-			//REGRESAMOS A LA VISTA INICIAL
-			Swal.fire({
-				type: 'success',
-				title: 'Hecho, los cambios han sido efectuados!',
-				showConfirmButton: false,
-				timer: 1500
-			})
-			window.close('./parteTrasera.html', '_blank')
-
-	});
-
-	$("#guardar").click(function(){
-	});
-
-	function borrar(){
-
-	}
-
-	function validarTarjeta(){
-		
-	}
-
-
+    $(".button1").click(function(){
+        $(".contCard").replaceWith("<h2>tarjeta</h2>");
+    });
 });
