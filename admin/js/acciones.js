@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 
+
 	$(".button2").click(function(){
         Swal.fire({
 			title: 'Estas seguro?',
@@ -27,11 +28,11 @@ $(document).ready(function(){
 			}
 		  })
 
-		  	
+
 	});
-	
+
 	$(".button1").click(function(){
-		
+
 		Swal.fire({
 			title: "Abrir pestana nueva?",
 			text: "Para poder editar la parte trasera de la tarjeta se necesita abrir una nueva pestana. Quieres hacerlo?",
@@ -40,12 +41,12 @@ $(document).ready(function(){
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Si, ir a la pestana',
-			cancelButtonText: 'Solo editar la parte frontal',
-			
+			cancelButtonText: 'Cancelar',
+
 		  }).then((result) => {
-			if (result.value) {
-				window.open('./parteTrasera.html', '_blank')
-			}
+				if (result.value) {
+					window.open('./edicion.html', '_blank')
+				}
 		  })
 	});
 
@@ -60,19 +61,20 @@ $(document).ready(function(){
 				showConfirmButton: false,
 				timer: 1500
 			})
-			window.close('./parteTrasera.html', '_blank')
+			window.close('./edicion.html', '_blank')
 
 	});
 
 	$("#guardar").click(function(){
+
 	});
 
 	function borrar(){
-
+		$("#item").replaceWith("<div id='item'></div>");
 	}
 
 	function validarTarjeta(){
-		
+
 	}
 
 
