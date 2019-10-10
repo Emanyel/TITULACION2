@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 $(document).ready(function(){
@@ -33,13 +34,18 @@ $(document).ready(function(){
 
 	$(".button1").click(function(){
 
+=======
+$(function(){
+	$(".button1").click(function(){
+>>>>>>> 33b34bfab478adf8847c66d8d832786c0208cdb2
 		Swal.fire({
-			title: "Abrir pestana nueva?",
-			text: "Para poder editar la parte trasera de la tarjeta se necesita abrir una nueva pestana. Quieres hacerlo?",
+			title: 'Estas seguro?',
+			text: "Para poder editar la tarjeta se necesita abrir una nueva ventana Quieres abrirla?",
 			type: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
+<<<<<<< HEAD
 			confirmButtonText: 'Si, ir a la pestana',
 			cancelButtonText: 'Cancelar',
 
@@ -76,6 +82,29 @@ $(document).ready(function(){
 	function validarTarjeta(){
 
 	}
+=======
+			confirmButtonText: 'Si, hazlo!',
+			confirmButtonCancel: 'Cancelar',
+			}).then((result) => {
+			if (result.value) {
+				window.open('./edicionTarjeta.html');
+			}
+		})
+	});
 
+	$(".button2").click(function(){
+
+	});
+
+	$("#mas").click(function(){
+		var dato = parseInt(document.getElementById("quantity").text());
+		dato = dato++;
+		document.getElementById("quantity").innerText = dato;
+	});
+
+	$("#menos").click(function(){
+>>>>>>> 33b34bfab478adf8847c66d8d832786c0208cdb2
+
+	});
 
 });

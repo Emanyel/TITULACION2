@@ -10,6 +10,12 @@ body{
   background: #c91221;
 }
 
+#flexbox{
+	display: flex;
+}
+
+
+
 .wrap{
 	width: 1100px;
 	margin: 50px auto;
@@ -58,7 +64,7 @@ body{
 }
 
 .atras{
-	-webkit-transform: rotateY(180deg); 
+	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 
 	padding: 15px;
@@ -86,15 +92,6 @@ body{
 	transform: rotateY(180deg);
 }
 
-
-div.blur{
-	-webkit-filter: blur(3px);
-	filter: blur(3px);
-	filter: url(blur.svg#blur);
-	-webkit-transform: scale(0.95);
-	transform: scale(0.95);
-}
-
 .card1{
 	background-image: url(http://1.1m.yt/J9Kw7kl.jpg);
 	background-size: cover;
@@ -108,23 +105,4 @@ div.blur{
 .card3{
 	background-image: url(http://3.1m.yt/EUB_xE.jpg);
 	background-size: cover;
-}
-
-
-.editar{
-	width: 400px;
-	height: 350px;
-	background: #cccccc;
-	position: relative;
-
-}
-
-input[type=text], input[type=number], input[type=date]{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }

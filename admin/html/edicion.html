@@ -9,15 +9,25 @@
 		src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 		  crossorigin="anonymous"></script>
+<<<<<<< HEAD:admin/html/edicion.html
 		  <script src="../js/acciones.js"></script>
+=======
+		  <link rel="stylesheet" href="../../inventario/assets/css/bootstrap.css">
+		  <link rel="stylesheet" href="../css/botones.css">
+		  <link rel="stylesheet" href="../css/botones.css">
+>>>>>>> 33b34bfab478adf8847c66d8d832786c0208cdb2:admin/html/edicionTarjeta.html
 		  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 		  <script src="sweetalert2.all.min.js"></script>
 			<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
 			<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+			<link rel="stylesheet" href="../css/edicionTarjeta.css">
+			<script src="../js/acciones.js"></script>
+
     <title>Editar tarjeta</title>
 </head>
 <body>
+<<<<<<< HEAD:admin/html/edicion.html
  <div class="container p-4">
 	 <div class="h4">Parte trasera de la tarjeta</div>
 	 <form action="" method="POST">
@@ -35,5 +45,40 @@
 
 
 
+=======
+	<div class="container p-4" id="flexbox">
+		<div class="container p-4" id="frontal" style="position: left;">
+		<h4>Parte frontal de la tarjeta</h4>
+		<form action="" method="post">
+			<div class="form-group"><input type="text" placeholder="Escribe el nombre del evento"/></div>
+			<div class="form-group"><input type="number" placeholder="Ingresa el precio"/></div>
+			<div class="form-group"><input type="text" placeholder="Ingresa una direccion"/></div>
+			<div class="form-group"><input type="date" placeholder="Selecciona la hora y la fecha del evento"/></div>
+		</form>
+		</div>
+		<div class="container p-4" id="trasera">
+			<h4>Parte trasera de la tarjeta</h4>
+			<form action="" method="post">
+				<div class="form-group"><input type="text" placeholder="Escribe nombre del cliente"/></div>
+				<div class="form-group"><input type="number" placeholder="Ingresa el numero de empleados"/></div>
+				<div class="form-group">
+					<h4>Mesas</h4>
+					<button class="btn btn-primary" id="menos" >Quitar</button>
+					<input type="text" name="quantity" id="quantity" value="0">
+					<button class="btn btn-success" id="mas">Agregar</button>
+				</div>
+				<div class="form-group">
+						<h4>Sillas</h4>
+						<button class="btn btn-success" id="menosSillas" >Quitar</button>
+						<input type="text" name="quantity" id="quantity" value="0">
+						<button class="btn btn-success" id="masSillas">Agregar</button>
+					</div>
+				<div class="form-group"><input type="date" placeholder="Selecciona la hora y la fecha del evento"/></div>
+			</form>
+		</div>
+	</div>
+	
+	
+>>>>>>> 33b34bfab478adf8847c66d8d832786c0208cdb2:admin/html/edicionTarjeta.html
 </body>
 </html>
