@@ -1,36 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>COTIZAR</title>
-    <link rel="stylesheet" href="css/estilos-app.css">
-    <link href="https://fonts.googleapis.com/css?family=Gayathri:100,400,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Gayathri:100,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <div class="contenedor-1">
-            <h2>SELECCIONA LOS SERVICIOS DE TU INTERÉS:</h2>
-        <div class="seccion-menu">
-            
-            <input type="button" value="SILLAS Y MESAS" class="btn" onclick="ocultaUno()">
-            <input type="button" value="ENTRETENIMIENTO" class="btn" onclick="ocultaDos()">
-            <input type="button" value="CUBIERTOS" class="btn" onclick="ocultaTres()">
-            <input type="button" value="MÚSICA" class="btn" onclick="ocultaCuatro()">
-            <input type="button" value="SALÓN" class="btn" onclick="ocultaCinco()">               
-        </div>
+
+    <div class="container">
+
+        <header class="contenido-header">
+
+            <div class="barra pad-lados">
+                <div class="nav-logo">
+                    <a href="index.html" class="mayusculas">
+                        karina
+                    </a>
+                </div>
+
+                <div class="nav-link">
+                    <a href="#seccion-1" class="mayusculas">Inicio</a>
+                    <a href="#seccion-2" class="mayusculas">Nosotros</a>
+                    <a href="#seccion-3" class="mayusculas">Servicios</a>
+                    <a href="#seccion-4" class="mayusculas">Cotizar</a>
+                    <a href="#seccion-5" class="mayusculas">Contacto</a>
+                    <a href="#" class="mayusculas">Administrador</a>
+                </div>
+            </div>
+
+        </header>
+
+
+        <form class="cotizacion">
+            <fieldset>
+                <legend>Cotizar</legend>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="" id="nombre" placeholder="Introduce tu Nombre" required>
+                <label for="correo">Correo:</label>
+                <input type="email" name="" id="correo" placeholder="Introduce tu E-mail" required>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" name="" id="telefono" placeholder="Introduce tu Teléfono" required>
+                <label for="asunto">Asunto:</label>
+                <input type="text" name="" id="asunto" placeholder="Introduce el Asunto" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="" id="mensaje" placeholder="Introduce tu Mensaje..." required></textarea>
+                <button type="submit" class="boton-verde letra-blanca wow animated bounceIn">ENVIAR</button>
+            </fieldset>
+        </form>
+
     </div>
-    
-    <div class="contenedor-2">
-            <div class="cajas" id="caja-1">1</div>
-            <div class="cajas" id="caja-2">2</div>
-            <div class="cajas" id="caja-3">3</div>
-            <div class="cajas" id="caja-4">4</div>
-            <div class="cajas" id="caja-5">5</div>
-    </div>
+
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 
     <script src="/Alquiladora/js/acordeon.js"></script>
 
 </body>
+
 </html>

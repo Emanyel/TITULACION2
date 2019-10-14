@@ -1,100 +1,173 @@
 html{
     scroll-behavior: smooth;
+    font-size: 62.5%; /* 1rem = 10px */
 }
 
 body{
-    font-family: 'Gayathri', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+}
+
+/* GLOBALES */
+
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 3.8rem;
+    font-weight: 400;
+}
+
+h2{
+    font-size: 2.8rem;
+    
+}	
+
+h3{
+    font-size: 2.4rem;
+    font-weight: 300;
+}
+
+img{
+    width: 100%;
 }
 
 a{
     text-decoration: none;
 }
 
-.a-link{
+/* UTILIDADES */
+
+.pad-lados{
+    padding: 0px 150px;
+}
+
+.mayusculas{
+    text-transform: uppercase;
+}
+
+.primera-mayuscula{
+    text-transform: capitalize;
+}
+
+.boton-verde{
+    background: #4BAEA0;
+    padding: 10px 50px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.letra-blanca{
     color: white;
-    font-size: 13px;
-    margin: 0px 10px;
-    letter-spacing: 2px;
-    
 }
 
-.a-logo{
-    color: white;
-    font-family: 'Black Han Sans', sans-serif;
-    letter-spacing: 5px;
-    font-size: 18px;
-}
-
-.a-link:hover{
-    border-bottom: 2px solid white;
-}
-
-.nav-logo{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.nav-link{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    
-}
-
-.landing{
-    background-image: url('../img/imagen-fondo.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.h-landing, .a-landing, .p-landing{
-    color: white;
-    font-weight: 100;
-    letter-spacing: 5px;
+.centrar-texto{
     text-align: center;
 }
 
-.h-landing{
-    margin-bottom: 10px;
+.ancho-texto{
+    font-weight: 400;
 }
 
-.p-landing{
-    font-size: 14px;
-    margin-bottom: 30px;
+.gris{
+    color: #6C757D;
 }
 
-.a-landing{
+/* HEADER */
+
+.contenido-header{
+    height: 100vh;
+    background-image: url('../img/imagen-fondo.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.barra{
     background: #4BAEA0;
-    padding: 15px 40px;
-    border-radius: 30px;
-    font-size: 13px;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.a-landing:hover{
-    background: rgb(36, 85, 78);
+.nav-logo a{
+    color: white;
+    letter-spacing: 5px;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
-.vacio{
+
+.nav-link a{
+    color: white;
+    font-size: 1.4rem;
+    margin: 0px 10px;
+    letter-spacing: 1px;
+}
+
+.nav-link a:last-of-type{
+    margin: 0px;
+}
+
+.nav-link a:hover{
+    border-bottom: 2px solid white;
+}
+
+@media (max-width: 800px){
+
+    .barra{    
+        justify-content: center;
+    }
+
+    .nav-link a{
+        display: none;
+    }
+}
+
+.contenido-landing{
+    width: 100%;
+    height: 92vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.landing a:hover{
+    background: rgb(36, 85, 78);
+}
+
+
+/* NOSOTROS */
+
+.nosotros h3{
+    margin: 4rem 0;
+    font-weight: 400;
+    color: #6C757D;
 }
 
 .nosotros-1{
+    height: 350px;
     background-image: url('../img/nosotros-img.png');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.nosotros-1 h2{
+    font-weight: 400;
+    letter-spacing: 10px;
+}
+
+.nosotros-1 p{
+    letter-spacing: 5px;
 }
 
 .nosotros-2{
@@ -103,99 +176,108 @@ a{
     align-items: center;
     flex-direction: column;
     border-bottom: 50px solid #4BAEA0;
+    margin-bottom: 50px;
 }
 
-.h-noso{
-    color: #707070;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-align: center;
-    border-bottom: 1px solid gray;
+.nosotros-2 p{
+    color: #6C757D;
 }
 
-.h-nosotros{
-    color: #707070;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-align: center;
-    border-bottom: 1px solid gray;
-}
+/* SERVICIOS */
 
-.p-nosotros{
-    color: #707070;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-align: center;
-    margin-top: 30px;
-}
-
-.servicios-1, .servicios-2, .servicios-3{
+.servicios-head{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.servicios h2{
+    font-weight: 400;
+    color: #6C757D;
 }
 
 .img-servicios{
     width: 200px;
 }
 
-.p-servicios{
-    color: #707070;
-    font-size: 14px;
-    letter-spacing: 5px;
-    margin-top: 15px;
-    margin-bottom: 35px;
-    text-align: center;
-}
+/* COTIZAR */
 
 .cotizar{
+    height: 400px;
     background-image: url('../img/img-cotiza.png');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 50px;
 }
+
+.cotizar h2{
+    font-weight: 400;
+    letter-spacing: 8px;
+}
+
+.cotizar a:hover{
+    background: rgb(36, 85, 78);
+}
+
+/* CONTACTO */
 
 .contacto{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 
 .formulario{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 500px;
-    border: 1px solid #707070;
-    margin-top: 50px;
-    border-radius: 15px;
+    min-width: 450px;
+    width: 40%;
+    margin-top: 20px;
 }
 
-.p-form{
-    color: #707070;
-    font-size: 14px;
-    letter-spacing: 5px;
-    margin-top: 25px;
-    text-align: center;
+legend{
+    color:#6C757D;
+    margin-bottom: 30px;
 }
 
-#nombre, #correo, #mensaje{
-    width: 300px;
-    margin: 20px 0px;
+label{
+    color: #6C757D;
 }
 
-#mensaje{
-    height: 100px;
+input:not([type="submit"]),
+textarea{
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    background: rgb(223, 223, 223);;
 }
 
-#btn-form{
-    margin: 20px 0px;
+textarea{
+    height: 20rem;
 }
 
+button{
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+
+/*******  APP COTIZACIÓN   *******/
+
+.cotizacion{
+    min-width: 450px;
+    width: 40%;
+    margin-top: 20px;
+
+}
