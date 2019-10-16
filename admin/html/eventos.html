@@ -21,14 +21,13 @@
 			<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 			<script src="../js/acciones.js"></script>
-			<script src="../js/modals.js"></script>
     <title>Eventos</title>
 </head>
 <body>
 	
 		<div class="wrap">
-			<div class="container p-4" style="display: flex;">
-				<div id="item">
+			<div class="container p-4" style="display: flex;" id="primerDiv">
+				<div class="item">
 					<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">
 						<div class="tarjeta" id="tarjeta">
 								<div class="adelante card1">
@@ -66,7 +65,7 @@
 					</div>
 				</div>
 
-				<div id="item">
+				<div class="item">
 					<div class="tarjeta-wrap" style="float: left;">
 						<div class="tarjeta">
 								<div class="adelante card2">
@@ -105,7 +104,7 @@
 				</div>
 
 				<div class="nuevoEvento">
-					<button class="btn btn-success">Agregar evento</button>
+					<button class="btn btn-success newEvent" id="boton">Agregar evento</button>
 				</div>
 
 			</div> <!-- FIN DE CONTENEDOR FLEX -->
