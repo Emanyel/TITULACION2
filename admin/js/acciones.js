@@ -71,6 +71,28 @@ $(document).ready(function(){
 		})
 	});
 
+	$(document).on('click', '.enviarEdicion', function(){
+		
+
+	});
+
+	$(document).on('click', '.cancelEdicion', function () {
+		Swal.fire({
+			type:'warning',
+			title: 'Estas seguro?',
+			text: 'No se guardará ningun dato ingresado',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			cancelButtonText: 'Cancelar',
+			confirmButtonText: 'Si, hazlo!'
+		  }).then((result) => {
+			if (result.value) {
+			  window.close();
+			}
+		})
+	});
+
 	//FUNCIONES DE AYUDA
 	function agregarButtonEvento(){
 		$(".entradas").replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");

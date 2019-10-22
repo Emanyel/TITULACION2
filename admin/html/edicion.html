@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		  crossorigin="anonymous"></script>
+		  <link rel="stylesheet" href="../css/botones.css">
+		  <link rel="stylesheet" href="../css/botones.css">
+		  <link rel="stylesheet" href="../css/editarEvento.css">
+		  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+		  <script src="sweetalert2.all.min.js"></script>
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+			<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+            <script src="../js/acciones.js"></script>
+            <link rel="stylesheet" href="../css/edicionTarjeta.css">
+</head>
+<body>
+    <div class="container p-4">
+        
+        
+        <form action="../php/edicion.php" method="get">
+            <div id="edicion">
+                <div class="p-4" id="parteDelantera">
+                        <h3>Parte delantera de la tarjeta</h3>
+                        <label for="">Nombre del evento</label>
+                        <div class="form-group">
+                            <input type="text" name="evento" placeholder="Escribe el nombre del evento" required/></div>
+                            
+                        <label for="">Digita el precio del evento</label>
+                        <div class="form-group">
+                                <input type="number"name="precio" min="1" required/></div>
+
+                            <label for="">Direccion del evento</label>
+                            <div class="form-">
+                                <input type="text" name="direccion" placeholder="Escribe el la direccion del evento" required/></div>
+                    <label for="">Selecciona cuando sera el evento</label>
+                    <div class="form-group">
+                        <input type="date" name="fecha" placeholder="dd/mm/yyyy" required/></div>
+                        
+                </div>
+                <div class="p-4"id="parteTrasera">
+                        <h3>Parte trasera de la tarjeta</h3>
+                        <label for="">Nombre del solicitante</label>
+                        <div class="form-group">
+                                <input type="text" name="usuario" placeholder="Escribe el nombre del evento" required/></div>
+                        
+                        <label for="">Agrega la cantidad de empleados a utilizar</label>
+                        <div class="form-group">
+                                        <input type="number"name="empleados" min="5"/></div>
+                            
+            </div>
+        </form>    
+    </div>
+    <div>
+            <button type="submit" class="enviarEdicion" id="boton">Enviar datos</button>
+            <button type="button" class="cancelEdicion" id="boton" >Cancelar</button>
+    </div>
+</body>
+</html>

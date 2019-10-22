@@ -1,8 +1,16 @@
-.icon-mas{
-    background: url('../images/icons/plus.svg');
+#edicion{
+    display: flex;
+    padding: 1.5rem;
+    max-width: 1140px;
+
 }
 
-.icon-menos{
-    background: url('../images/icons/minus.svg');
-
+#parteDelantera{
+    position: left;
+	background: #bad7df;
+    
+}
+#parteTrasera{
+    position: left;
+    background-color: #ffe2e2;
 }
