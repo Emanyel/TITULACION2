@@ -101,5 +101,26 @@ $(document).ready(function(){
 	function borrarEvento(){
 		
 	}
+$(document).on('keyup', 'input.number', function(event){
+
+		// skip for arrow keys
+		if(event.which >= 37 && event.which <= 40){
+			event.preventDefault();
+		  }
+		
+		  $(this).val(function(index, value) {
+			return value
+			  .replace(/\D/g, "")
+			  .replace(/([0-9])([0-9]{2})$/, '$1.$2')  
+			  .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",")
+			;
+		  });
+});
+$(document).on('keyup', '.telefono', function(event){
+	$('.telefono').mask('000-000-0000');
+
+});
+$('.correo').mask('(00) 0000-0000');
+
 
 });

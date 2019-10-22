@@ -9,10 +9,8 @@
     <script
 		src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-		  crossorigin="anonymous"></script>
-		  <link rel="stylesheet" href="../css/botones.css">
-		  <link rel="stylesheet" href="../css/botones.css">
-		  <link rel="stylesheet" href="../css/editarEvento.css">
+          crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 		  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 		  <script src="sweetalert2.all.min.js"></script>
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -21,6 +19,8 @@
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
             <script src="../js/acciones.js"></script>
             <link rel="stylesheet" href="../css/edicionTarjeta.css">
+            <link rel="stylesheet" href="../css/botones.css">
+		    <link rel="stylesheet" href="../css/editarEvento.css">
 </head>
 <body>
     <div class="container p-4">
@@ -28,38 +28,48 @@
         
         <form action="../php/edicion.php" method="get">
             <div id="edicion">
-                <div class="p-4" id="parteDelantera">
+                <div class="container p-4" id="parteDelantera">
                         <h3>Parte delantera de la tarjeta</h3>
                         <label for="">Nombre del evento</label>
                         <div class="form-group">
-                            <input type="text" name="evento" placeholder="Escribe el nombre del evento" required/></div>
+                            <input type="text" name="evento" placeholder="p. ej. XV años, Boda, Festival" required/></div>
                             
                         <label for="">Digita el precio del evento</label>
                         <div class="form-group">
-                                <input type="number"name="precio" min="1" required/></div>
+                                <input type="text"name="precio" class="number"placeholder="p. ej. 10000"min="1" required/></div>
 
                             <label for="">Direccion del evento</label>
                             <div class="form-">
-                                <input type="text" name="direccion" placeholder="Escribe el la direccion del evento" required/></div>
+                                <input type="text" name="direccion" placeholder="p. ej. Cd. Frailecillas. Mz. 11. Lt. 24 Casa A" required/></div>
                     <label for="">Selecciona cuando sera el evento</label>
                     <div class="form-group">
                         <input type="date" name="fecha" placeholder="dd/mm/yyyy" required/></div>
                         
                 </div>
-                <div class="p-4"id="parteTrasera">
+                <div class="container p-4"id="parteTrasera">
                         <h3>Parte trasera de la tarjeta</h3>
-                        <label for="">Nombre del solicitante</label>
-                        <div class="form-group">
-                                <input type="text" name="usuario" placeholder="Escribe el nombre del evento" required/></div>
-                        
                         <label for="">Agrega la cantidad de empleados a utilizar</label>
                         <div class="form-group">
-                                        <input type="number"name="empleados" min="5"/></div>
+                                        <input type="text"  class="number" name="empleados" min="5"/></div>
                             
+                </div>
+                <div class="container p-4"id="contacto">
+                    <h3>Contacto del cliente</h3>
+                    <label for="">Nombre(s) del cliente</label>
+                    <div class="form-group"><input type="text" placeholder="p. ej. Juan Carlos"/></div>
+                    <label for="">Apellido(s)</label>
+                    <div class="form-group"><input type="text" placeholder="p. ej. Hernandez Serrano"/></div>
+                    <label for="">Número de contacto</label>
+                    <div class="form-group"><input type="text" class="telefono" placeholder="p. ej. 5515 1656" pattern="[0-9]{3} [0-9]{3}-[0-9]{3}-[0-9]{4}" required/></div>
+                    <label for="">Correo electrónico</label>
+                    <div class="form-group"><input type="email" class="correo" placeholder="p. ej. alguien@gmail.com"/></div>
+                    
+                    
+                </div>
             </div>
         </form>    
     </div>
-    <div>
+    <div id="botones">
             <button type="submit" class="enviarEdicion" id="boton">Enviar datos</button>
             <button type="button" class="cancelEdicion" id="boton" >Cancelar</button>
     </div>
