@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alquiladora Karina</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Alquiladora/css/normalize.css">
+    <link rel="stylesheet" href="Alquiladora/css/animate.css">
+    <link rel="stylesheet" href="Alquiladora/css/estilos.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="contenido-header">
+
+            <div class="barra pad-lados">
+                <div class="nav-logo">
+                    <a href="index.html" class="mayusculas">
+                        karina
+                    </a>
+                </div>
+
+                <div class="nav-link">
+                    <a href="#seccion-1" class="mayusculas">Inicio</a>
+                    <a href="#seccion-2" class="mayusculas">Nosotros</a>
+                    <a href="#seccion-3" class="mayusculas">Servicios</a>
+                    <a href="#seccion-4" class="mayusculas">Cotizar</a>
+                    <a href="#seccion-5" class="mayusculas">Contacto</a>
+                    <a href="#" class="mayusculas">Administrador</a>
+                </div>
+            </div>
+
+            <div class="contenido-landing">
+                <div class="landing contenido-pad" id="seccion-1">
+                    <h1 class="mayusculas letra-blanca wow animated bounceInLeft">Hacemos realidad la fiesta de tus
+                        sueños</h1>
+                    <h3 class="mayusculas letra-blanca wow animated bounceInLeft">Tenemos más de 20 años de experiencia
+                    </h3>
+                    <a class="boton-verde mayusculas letra-blanca" href="#seccion-2">Comenzar</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="nosotros">
+
+            <h3 class="centrar-texto mayusculas" id="seccion-2">Nosotros</h3>
+
+            <div class="nosotros-1">
+                <h2 class="mayusculas letra-blanca">Alquiladora Karina</h2>
+                <p class="mayusculas letra-blanca">Creada en 1994</p>
+            </div>
+
+            <div class="nosotros-2 contenido-pad">
+                <h3 class="mayusculas wow animated bounceInLeft">Rentamos todo para tu evento</h3>
+                <p class="mayusculas wow animated bounceInLeft">Contamos con Sillas, Mesas, Entretenimiento, Grupos Musicales,
+                    Platillos Y Más</p>
+            </div>
+
+        </section>
+
+        <section class="servicios">
+
+            <h3 class="mayusculas centrar-texto gris
+                ancho-texto" id="seccion-3">Servicios</h3>
+
+            <div class="servicios-head">
+                <div class="servicios-1">
+                    <img src="../Alquiladora/img/sillas-mesas.png" class="img-servicios wow animated bounceIn" alt="">
+                    <p class="gris centrar-texto wow animated bounceIn">SILLAS Y MESAS</p>
+                </div>
+
+                <div class="servicios-2">
+                    <img src="../Alquiladora/img/img-entre.png" class="img-servicios wow animated bounceIn" alt="">
+                    <p class="gris centrar-texto wow animated bounceIn">ENTRETENIMIENTO</p>
+                </div>
+
+                <div class="servicios-3">
+                    <img src="../Alquiladora/img/mariachi.png" class="img-servicios wow animated bounceIn" alt="">
+                    <p class="gris centrar-texto wow animated bounceIn">MÚSICA</p>
+                </div>
+            </div>
+
+        </section>
+
+        <main>
+            <div class="cotizar" id="seccion-4">
+                <h2 class="mayusculas letra-blanca wow animated jackInTheBox">Cotiza tu evento aquí:</h2>
+                <a class="letra-blanca boton-verde" href="app.html">COTIZAR</a>
+            </div>
+        </main>
+
+        <div class="contacto" id="seccion-5">
+            <h3 class="centrar-texto gris mayusculas">Contáctanos para más información</h3>
+
+            <form class="formulario">
+                <fieldset>
+                    <legend>Contacto</legend>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="" id="nombre" placeholder="Introduce tu Nombre" required>
+                    <label for="correo">Correo:</label>
+                    <input type="email" name="" id="correo" placeholder="Introduce tu E-mail" required>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" name="" id="telefono" placeholder="Introduce tu Teléfono" required>
+                    <label for="asunto">Asunto:</label>
+                    <input type="text" name="" id="asunto" placeholder="Introduce el Asunto" required>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea name="" id="mensaje" placeholder="Introduce tu Mensaje..." required></textarea>
+                    <button type="submit" class="boton-verde letra-blanca wow animated bounceIn">ENVIAR</button>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+</body>
+
+</html>
