@@ -68,7 +68,7 @@ $(document).ready(function(){
 				'success'
 			  )
 			}
-		})BTT8-XVBJ-9JT8-NUDP-6NTC
+		})
 	});
 
 	$(document).on('click', '.enviarEdicion', function(){

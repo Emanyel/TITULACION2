@@ -20,7 +20,8 @@
             <script src="../js/acciones.js"></script>
             <link rel="stylesheet" href="../css/edicionTarjeta.css">
             <link rel="stylesheet" href="../css/botones.css">
-		    <link rel="stylesheet" href="../css/editarEvento.css">
+            <link rel="stylesheet" href="../css/editarEvento.css">
+            <link rel="stylesheet" href="../css/IconosParteTrasera.css">
 </head>
 <body>
     <div class="container p-4">
@@ -28,16 +29,23 @@
         
         <form action="../php/edicion.php" method="get">
             <div id="edicion">
+                    <div class="container p-4"id="contacto">
+                            <h3>Contacto del cliente</h3>
+                            <label for="">Nombre(s) del cliente</label>
+                            <div class="form-group"><input type="text" placeholder="p. ej. Juan Carlos"/></div>
+                            <label for="">Apellido(s)</label>
+                            <div class="form-group"><input type="text" placeholder="p. ej. Hernandez Serrano"/></div>
+                            <label for="">Número de contacto</label>
+                            <div class="form-group"><input type="text" class="telefono" placeholder="p. ej. 5515 1656" pattern="[0-9]{3} [0-9]{3}-[0-9]{3}-[0-9]{4}" required/></div>
+                            <label for="">Correo electrónico</label>
+                            <div class="form-group"><input type="email" class="correo" placeholder="p. ej. alguien@gmail.com"/></div>
+                        </div>
                 <div class="container p-4" id="parteDelantera">
                         <h3>Parte delantera de la tarjeta</h3>
                         <label for="">Nombre del evento</label>
                         <div class="form-group">
                             <input type="text" name="evento" placeholder="p. ej. XV años, Boda, Festival" required/></div>
                             
-                        <label for="">Digita el precio del evento</label>
-                        <div class="form-group">
-                                <input type="text"name="precio" class="number"placeholder="p. ej. 10000"min="1" required/></div>
-
                             <label for="">Direccion del evento</label>
                             <div class="form-">
                                 <input type="text" name="direccion" placeholder="p. ej. Cd. Frailecillas. Mz. 11. Lt. 24 Casa A" required/></div>
@@ -46,29 +54,37 @@
                         <input type="date" name="fecha" placeholder="dd/mm/yyyy" required/></div>
                         
                 </div>
-                <div class="container p-4"id="parteTrasera">
-                        <h3>Parte trasera de la tarjeta</h3>
-                        <label for="">Agrega la cantidad de empleados a utilizar</label>
-                        <div class="form-group">
-                                        <input type="text"  class="number" name="empleados" min="5"/></div>
-                            
-                </div>
-                <div class="container p-4"id="contacto">
-                    <h3>Contacto del cliente</h3>
-                    <label for="">Nombre(s) del cliente</label>
-                    <div class="form-group"><input type="text" placeholder="p. ej. Juan Carlos"/></div>
-                    <label for="">Apellido(s)</label>
-                    <div class="form-group"><input type="text" placeholder="p. ej. Hernandez Serrano"/></div>
-                    <label for="">Número de contacto</label>
-                    <div class="form-group"><input type="text" class="telefono" placeholder="p. ej. 5515 1656" pattern="[0-9]{3} [0-9]{3}-[0-9]{3}-[0-9]{4}" required/></div>
-                    <label for="">Correo electrónico</label>
-                    <div class="form-group"><input type="email" class="correo" placeholder="p. ej. alguien@gmail.com"/></div>
-                    
-                    
-                </div>
-            </div>
+                
+                
         </form>    
     </div>
+    <div class="container p-4"id="parteTrasera">
+        <h3>Parte trasera de la tarjeta</h3>
+                <div class="container p-4">
+                    <h5>Mesas y sillas</h5>
+                    <div><strong>*NOTA: Cada mesa contiene 10 sillas</strong></div>
+                    <div class="mesas" id="iconos"><img src="../images/icons/mesas.svg" alt="" srcset=""></div>
+                    <div>Numero de mesas</div>
+                    <button class="btn btn-success">Agregar mesas</button>
+                    <button class="btn btn-secondary">Quitar mesas</button>
+                </div>
+                <div class="container p-4">
+                    <H5>Entretenimiento</H5>
+                </div>
+                <div class="container p-4">
+                    <h5>Musica</h5>
+                </div>
+                <div class="container p-4">
+                    <h5>Extras</h5>
+                    <div class="mesas">Numero de sillas</div>
+                    <button class="btn btn-success">Agregar sillas</button>
+                    <button class="btn btn-secondary">Quitar sillas</button>
+                </div>
+    </div>
+        <div class="container p-4"></div>
+                    <label for="">TOTAL:</label>
+                    <div class="total" ></div>
+        </div>
     <div id="botones">
             <button type="submit" class="enviarEdicion" id="boton">Enviar datos</button>
             <button type="button" class="cancelEdicion" id="boton" >Cancelar</button>
