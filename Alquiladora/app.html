@@ -15,13 +15,11 @@
 
     <div class="container">
 
-        <header class="contenido-header">
+        <header>
 
             <div class="barra pad-lados">
                 <div class="nav-logo">
-                    <a href="index.html" class="mayusculas">
-                        karina
-                    </a>
+                    <a href="index.html" class="mayusculas">karina</a>
                 </div>
 
                 <div class="nav-link">
@@ -36,31 +34,130 @@
 
         </header>
 
+        <div class="seccion-cotizar contenedor">
+            <div class="seleccionar-servicios">
+                <form action="">
+                    <fieldset class="serv">
+                        <legend>Selecciona los servicios: </legend>
 
-        <form class="cotizacion">
-            <fieldset>
-                <legend>Cotizar</legend>
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="" id="nombre" placeholder="Introduce tu Nombre" required>
-                <label for="correo">Correo:</label>
-                <input type="email" name="" id="correo" placeholder="Introduce tu E-mail" required>
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" name="" id="telefono" placeholder="Introduce tu Teléfono" required>
-                <label for="asunto">Asunto:</label>
-                <input type="text" name="" id="asunto" placeholder="Introduce el Asunto" required>
-                <label for="mensaje">Mensaje:</label>
-                <textarea name="" id="mensaje" placeholder="Introduce tu Mensaje..." required></textarea>
-                <button type="submit" class="boton-verde letra-blanca wow animated bounceIn">ENVIAR</button>
-            </fieldset>
-        </form>
+                        <div class="grupo-check">
+                            <h3>Sillas y Mesas: </h3>
+                            <input type="checkbox" name="" id="">
+                        </div>
+
+                        <p>Tablón redondo:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p>Tablón rectangular:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p>Sillas:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p><span>*Cada mesa incluye 10 sillas.</span></p>
+
+                        <div class="grupo-check">
+                            <h3>Losa: </h3>
+                            <input type="checkbox" name="" id="">
+                        </div>
+
+                        <p>Plato Hondo:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p>Platón:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p>Vaso:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p>Cuchara:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p>Tenedor:</p>
+                        <input type="number" name="" id="" min="0">
+                        <p>Cuchillo:</p>
+                        <input type="number" name="" id="" min="0">
+
+                        <div class="grupo-check">
+                            <h3>Entretenimiento: </h3>
+                            <input type="checkbox" name="" id="">
+                        </div>
+
+                        <select name="" id="">
+                                <option value="value1" selected disabled>--Selecciona una opción:</option>
+                                <option value="value2">Brincolín</option>
+                                <option value="value3">Inflable</option>
+                            </select>
+
+                        <div class="grupo-check">
+                            <h3>Música: </h3>
+                            <input type="checkbox" name="" id="">
+                        </div>
+
+                        <p>Mariachi:</p>
+                        <select name="" id="">
+                            <option value="value1" selected disabled>--Selecciona Horas:</option>
+                            <option value="value2">1</option>
+                            <option value="value3">2</option>
+                            <option value="value3">3</option>
+                            <option value="value3">4</option>
+                        </select>
+
+                        <p>Grupo Norteño: </p>
+                        <select name="" id="">
+                            <option value="value1" selected disabled>--Selecciona Horas:</option>
+                            <option value="value2">1</option>
+                            <option value="value3">2</option>
+                            <option value="value3">3</option>
+                            <option value="value3">4</option>
+                        </select>
+
+                        <p>Dj: </p>
+                        <select name="" id="">
+                            <option value="value1" selected disabled>--Selecciona Horas:</option>
+                            <option value="value2">1</option>
+                            <option value="value3">2</option>
+                            <option value="value3">3</option>
+                            <option value="value3">4</option>
+                            <option value="value3">5</option>
+                            <option value="value3">6</option>
+                        </select>
+
+                        <div class="grupo-check">
+                            <h3>Lonas: </h3>
+                            <input type="checkbox" name="" id="">
+                        </div>
+
+                        <select name="" id="">
+                            <option value="value1" selected disabled>--Selecciona Medidas:</option>
+                            <option value="value2">4x2</option>
+                            <option value="value3">4x5</option>
+                            <option value="value3">4x10</option>
+                        </select>
+
+                        <div class="grupo-check">
+                            <h3>Salón: </h3>
+                            <input type="checkbox" name="" id="">
+                        </div>
+
+                        <select name="" id="">
+                            <option value="value1" selected disabled>--Selecciona Salón:</option>
+                            <option value="value2">Salón x</option>
+                            <option value="value3">Salón y</option>
+                            <option value="value3">Salón z</option>
+                        </select>
+
+                    </fieldset>
+                </form>
+
+            </div>
+            
+            <div class="detalle-servicios">
+                    <form action="">
+                            <fieldset>
+                                <legend>Total: </legend>
+                            </fieldset>
+                        </form>
+            </div>
+        </div>
 
     </div>
 
     <script src="js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-
+    <script>new WOW().init();</script>
     <script src="/Alquiladora/js/acordeon.js"></script>
 
 </body>
