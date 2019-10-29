@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	$('input[name=direccion]').prop("disabled",true);
+	$('input[name="fecha"]').prop("disabled", true);
+	$('input[name="evento"]').prop("disabled", true);
+
 	// CONTAMOS CUANTOS ITEM EXISTEN (TARJETAS)
 	var items =  document.getElementsByClassName("item").length;
 	console.log(items);
@@ -101,6 +105,5 @@ $(document).ready(function(){
 	function borrarEvento(){
 		
 	}
-
 
 });
