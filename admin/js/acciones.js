@@ -34,18 +34,33 @@ $(document).ready(function(){
 	});
 		//ACCION PARA EL BOTON CREAR UN NUEVO EVENTO
 	$(document).on('click', '.newEvent', function(){
-			
-				$('.inicio').replaceWith('<div class="entradas">'+
-				'<h4>Parte delantera de la tarjeta</h4>'+
-				'<form id="form" action="../php/agregarEvento.php" method="GET">'+
-				'<div class="form-group"><input type="text" id="datepicker" placeholder="Select date" required/></div>'+
-				'<div class="form-group"><input name="evento" placeholder="Escribe el nombre del evento" required/></div>'+
-				'<div class="form-group"><input name="direccion" placeholder="Escribe la dirección" required/></div>'+
-				'<button type="submit" class="aceptar" id="boton">Aceptar</button>'+
-				'</form>'+
-				'<button class="cancelar" id="boton">Cancelar</button>'+
-				'</div>'+
-				'<script>$("#datepicker").datepicker({ minDate: 0 });</script>');
+		if(items != 0){
+			$('.nuevoEvento').replaceWith('<div class="entradas">'+
+			'<h4>Parte delantera de la tarjeta</h4>'+
+			'<form id="form" action="../php/agregarEvento.php" method="GET">'+
+			'<div class="form-group"><input type="text" id="datepicker" placeholder="Select date" required/></div>'+
+			'<div class="form-group"><input name="evento" placeholder="Escribe el nombre del evento" required/></div>'+
+			'<div class="form-group"><input name="direccion" placeholder="Escribe la dirección" required/></div>'+
+			'<button type="submit" class="aceptar" id="boton">Aceptar</button>'+
+			'</form>'+
+			'<button class="cancelar" id="boton">Cancelar</button>'+
+			'</div>'+
+			'<script>$("#datepicker").datepicker({ minDate: 0 });</script>');
+		}else{
+			$('.inicio').replaceWith('<div class="entradas">'+
+			'<h4>Parte delantera de la tarjeta</h4>'+
+			'<form id="form" action="../php/agregarEvento.php" method="GET">'+
+			'<div class="form-group"><input type="text" id="datepicker" placeholder="Select date" required/></div>'+
+			'<div class="form-group"><input name="evento" placeholder="Escribe el nombre del evento" required/></div>'+
+			'<div class="form-group"><input name="direccion" placeholder="Escribe la dirección" required/></div>'+
+			'<button type="submit" class="aceptar" id="boton">Aceptar</button>'+
+			'</form>'+
+			'<button class="cancelar" id="boton">Cancelar</button>'+
+			'</div>'+
+			'<script>$("#datepicker").datepicker({ minDate: 0 });</script>');
+		}
+
+				
 	});
 		//ACCION PARA ACEPTAR LA INFO DEL NUEVO EVENTO
 	$(document).on('click', '.aceptar', function(){
@@ -98,7 +113,10 @@ $(document).ready(function(){
 
 	//FUNCIONES DE AYUDA
 	function agregarButtonEvento(){
-		if(items == 0){
+		if(items != 0){
+			$(".entradas").replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
+			
+		}else{
 			$(".entradas").replaceWith(
 				"<div class='container p-4 inicio' > <p>Aqui es donde se mostrarán todos tus eventos."+
 				" Para agregar un nuevo evento da click en el boton y llena los campos correspondientes</p>"+
@@ -107,9 +125,8 @@ $(document).ready(function(){
 				"</div>"+
 				"</div>"
 			);
-		}else{
-			$(".entradas").replaceWith("<div class='container p-4 nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
 		}
+
 	}
 
 	function borrarEvento(){
