@@ -10,12 +10,14 @@ $(document).ready(function(){
         $('input[name="fecha"]').prop("disabled", false);
         $('input[name="evento"]').prop("disabled", false);
     });
+
     $(document).on('click', '#cancelarDelantera', function(){
 
         $('input[name=direccion]').prop("disabled", true);
         $('input[name="fecha"]').prop("disabled", true);
         $('input[name="evento"]').prop("disabled", true);
     });
+    
     var contador = 0;
     $(document).on('click', '#agregarSillas', function(){
         document.getElementById('sillas').value = ++contador;
@@ -48,8 +50,24 @@ $(document).ready(function(){
     });
     
     
-    $(document).on('click', '.cancelarEdicion', function(){
+    $(document).on('click', '.cancelarEdicion', function(e){
+        e.preventDefault();
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: "Ningún cambio se guardará!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, hazlo!',
+            cancelButtonText: 'Cancelar'
+            }).then((result) => {
+            if (result.value) {
+               
+                    window.close();
+                
+            }
+        })
         
-
     });
 });

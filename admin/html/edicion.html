@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../../inventario/assets/css/bootstrap.css">
+    <!-- VERSION 2 Y 3-->
     <script src="../../inventario/assets/js/jquery-1.10.2.js"></script>
-    
-		  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="../../inventario/assets/js/jquery2.js"></script>
+¿    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    		  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 		  <script src="sweetalert2.all.min.js"></script>
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
@@ -60,7 +63,7 @@
                         <div><strong><i> *NOTA: Cada mesa contiene 10 sillas</i></strong></div>
                         <div class="mesas" id="iconos"><img src="../images/icons/mesas.svg" alt="" srcset=""></div>
                         <input type="text" id="mesas" name="mesas" required>
-                        <button class="btn btn-success" id="agregarMesas">Agregar mesas</button>
+                        <button class="btn btn-primary" id="agregarMesas">Agregar mesas</button>
                         <button class="btn btn-secondary" id="quitarMesas" >Quitar mesas</button>
                     </div>
                     <div class="container p-4">
@@ -83,11 +86,12 @@
                     <label for="">TOTAL:</label>
                     <div class="total" ></div>
         </div>
-        <div class="container p-4" id="botones">
-                <button type="submit" class="enviarEdicion" id="boton">Enviar datos</button>
-                <button type="button" class="cancelarEdicion" id="boton" >Cancelar</button>
-        </div>
+        
     </form>
+    <div class="container p-4" id="botones">
+        <button type="submit" class="enviarEdicion" id="boton">Enviar datos</button>
+        <button type="button" class="cancelarEdicion" id="boton" >Cancelar</button>
+</div>
 </div>
 </body>
 </html>
