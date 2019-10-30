@@ -37,34 +37,49 @@ $(document).ready(function(){
 		if(items != 0){
 			$('.nuevoEvento').replaceWith('<div class="entradas">'+
 			'<h4>Parte delantera de la tarjeta</h4>'+
-			'<form id="form" action="../php/agregarEvento.php" method="GET">'+
-			'<div class="form-group"><input type="text" id="datepicker" placeholder="Select date" required/></div>'+
-			'<div class="form-group"><input name="evento" placeholder="Escribe el nombre del evento" required/></div>'+
-			'<div class="form-group"><input name="direccion" placeholder="Escribe la dirección" required/></div>'+
+
+			'<div class="form-group"><input type="date" class="fecha" id="datepicker" placeholder="Select date" required/></div>'+
+			'<div class="form-group"><input class="evento" placeholder="Escribe el nombre del evento" required/></div>'+
 			'<button type="submit" class="aceptar" id="boton">Aceptar</button>'+
-			'</form>'+
 			'<button class="cancelar" id="boton">Cancelar</button>'+
-			'</div>'+
-			'<script>$("#datepicker").datepicker({ minDate: 0 });</script>');
+			'</div>');
 		}else{
 			$('.inicio').replaceWith('<div class="entradas">'+
 			'<h4>Parte delantera de la tarjeta</h4>'+
-			'<form id="form" action="../php/agregarEvento.php" method="GET">'+
-			'<div class="form-group"><input type="text" id="datepicker" placeholder="Select date" required/></div>'+
-			'<div class="form-group"><input name="evento" placeholder="Escribe el nombre del evento" required/></div>'+
-			'<div class="form-group"><input name="direccion" placeholder="Escribe la dirección" required/></div>'+
+			'<div class="form-group"><input type="date" class="fecha"  placeholder="Selecciona la fecha" required/></div>'+
+			'<div class="form-group"><input class="evento" placeholder="Escribe el nombre del evento" required/></div>'+
 			'<button type="submit" class="aceptar" id="boton">Aceptar</button>'+
-			'</form>'+
 			'<button class="cancelar" id="boton">Cancelar</button>'+
-			'</div>'+
-			'<script>$("#datepicker").datepicker({ minDate: 0 });</script>');
+			'</div>');
 		}
 
 				
 	});
 		//ACCION PARA ACEPTAR LA INFO DEL NUEVO EVENTO
-	$(document).on('click', '.aceptar', function(){
-		 
+	$(document).on('click', '.aceptar', function(e){
+		e.preventDefault();
+		var nombreEvento = $(".evento").val();
+		var fecha = $(".fecha").val();
+		if(nombreEvento != "" && fecha != ""){
+			datos = {"nombreEvento":nombreEvento, "fecha":fecha};
+			$.ajax({
+				url: "../php/agregarEvento.php",
+				type: "GET",
+				data: datos
+			}).done(function(respuesta){
+				if (respuesta.estado === "ok") {
+					nuevaTarjeta();
+					Swal.fire({
+						type: 'success',
+						title: 'Has creado un evento nuevo',
+						showConfirmButton: true,
+						confirmButtonText: "Ok"
+					  })
+					console.log(JSON.stringify(respuesta));
+				}
+			});
+		}
+		
 	});
 		//ACCION PARA DECLINAR LA INFO DEL NUEVO EVENTO
 	$(document).on('click', '.cancelar', function(){
@@ -128,8 +143,96 @@ $(document).ready(function(){
 		}
 
 	}
+	function nuevaTarjeta(){
+		if(items != 0){
+			$(".entradas").replaceWith('<div class="item">'+
+			'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
+				'<div class="tarjeta" id="tarjeta">'+
+						'<div class="adelante card1">'+
+								'<div class="card-block" >'+
+									'<img src="../img/1.jpg" class="card-img-top" alt="..." style=" height: 8rem; width: fill;">'+
+									'<div class="card-body">'+
+										'<h5 class="card-title" id="evento">Nombre del Evento </h5>'+
+										'<h6 class="card-subtitle mb-2 text-muted" id="precio"> $$ Precio</h6>'+
+										'<p class="card-text" id="lugar">Lugar:</p>'+
+										'<p class="card-text" id="hora">Hora: </p>'+
+									'</div>'+
+								'</div>'+
+							'<div class="card-footer">'+
+								'<small class="text-muted">Last updated 3 mins ago</small>'+
+							'</div>'+
+						'</div> <!-- FIN DE ADELANTE -->'+
+							'<div class="atras">'+
+								'<div class="card-block">'+
+										'<div class="card-body">'+
+											'<h4 class="card-title" id="eventoAtras">Nombre del evento</h5>'+
+											'<p class="card-text" id="solicitante">Nombre del solicitante</p>'+
+											'<p class="card-text" id="noEmpleados">Empleados</p>'+
+											'<p class="card-text" id="recursos">Mesas y sillas</p>'+
+											'<p class="card-text" id="entretenimiento">Entretenimiento</p>'+
+											'<p class="card-text" id="musica">Musica</p>'+
+											'<p class="card-text" id="extras">Extras</p>'+
+										'</div>'+
+								'</div>'+
+							'</div><!-- fin de atras-->'+
+				'</div> <!-- fin de tarjeta -->'+
+			'</div> <!-- fin de tarjeta wrap -->'+
+			'<div class="container p-3" id="buttons">'+
+				'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1" id="boton">Editar</button>'+
+				'<button class="button2" id ="boton" >Eliminar</button>'+
+			'</div>'+
+		'</div>'+
+		'<div class="nuevoEvento">'+
+				'<button class="btn btn-success newEvent" id="boton">Agregar evento</button>'+
+		'</div>');
 
-	function borrarEvento(){
+		}else{
+			if(items == 0){
+				$(".entradas").replaceWith(
+					'<div class="container p-4" style="display: flex;" id="primerDiv">'+
+					'<div class="item">'+
+				'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
+					'<div class="tarjeta" id="tarjeta">'+
+							'<div class="adelante card1">'+
+									'<div class="card-block" >'+
+										'<img src="../img/1.jpg" class="card-img-top" alt="..." style=" height: 8rem; width: fill;">'+
+										'<div class="card-body">'+
+											'<h5 class="card-title" id="evento">Nombre del Evento </h5>'+
+											'<h6 class="card-subtitle mb-2 text-muted" id="precio"> $$ Precio</h6>'+
+											'<p class="card-text" id="lugar">Lugar:</p>'+
+											'<p class="card-text" id="hora">Hora: </p>'+
+										'</div>'+
+									'</div>'+
+								'<div class="card-footer">'+
+									'<small class="text-muted">Last updated 3 mins ago</small>'+
+								'</div>'+
+							'</div> <!-- FIN DE ADELANTE -->'+
+								'<div class="atras">'+
+									'<div class="card-block">'+
+											'<div class="card-body">'+
+												'<h4 class="card-title" id="eventoAtras">Nombre del evento</h5>'+
+												'<p class="card-text" id="solicitante">Nombre del solicitante</p>'+
+												'<p class="card-text" id="noEmpleados">Empleados</p>'+
+												'<p class="card-text" id="recursos">Mesas y sillas</p>'+
+												'<p class="card-text" id="entretenimiento">Entretenimiento</p>'+
+												'<p class="card-text" id="musica">Musica</p>'+
+												'<p class="card-text" id="extras">Extras</p>'+
+											'</div>'+
+									'</div>'+
+								'</div><!-- fin de atras-->'+
+					'</div> <!-- fin de tarjeta -->'+
+				'</div> <!-- fin de tarjeta wrap -->'+
+				'<div class="container p-3" id="buttons">'+
+					'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1" id="boton">Editar</button>'+
+					'<button class="button2" id ="boton" >Eliminar</button>'+
+				'</div>'+
+			'</div>'+
+			'<div class="nuevoEvento">'+
+					'<button class="btn btn-success newEvent" id="boton">Agregar evento</button>'+
+			'</div>'+
+			'</div>');
+			}
+		}
 		
 	}
 
