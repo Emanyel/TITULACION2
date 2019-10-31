@@ -3,8 +3,7 @@ include_once 'conexion.php';
 $nombreEvento = $_GET['nombreEvento'];
 $fecha = $_GET['fecha'];
 
-    $query = "INSERT INTO eventos (nombre, fecha) VALUES ('$nombreEvento', '$fecha');
-    SELECT * FROM eventos WHERE fecha='$fecha';";
+    $query = "INSERT INTO eventos (nombre, fecha) VALUES ('$nombreEvento', '$fecha');";
 
     if ($conn->query($query) === TRUE) {
         $lastId = $conn->insert_id; 

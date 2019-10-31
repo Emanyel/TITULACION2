@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var numItem;
 
 		// CONTAMOS CUANTOS ITEM EXISTEN (TARJETAS)
-	var items =  document.getElementById("princ").length;
+	var items =  document.getElementsByClassName('princ').length;
 	console.log(items);
 
 		//ACCCION PARA EL BOTON EDITAR
@@ -25,7 +25,6 @@ $(document).ready(function(){
 			confirmButtonText: 'Si, hazlo!'
 		  }).then((result) => {
 			if (result.value) {
-				borrarEvento();
 			  Swal.fire(
 				'Borrado!',
 				'El evento ha sido borrado',
@@ -146,7 +145,7 @@ $(document).ready(function(){
 		}
 
 	}
-	function nuevaTarjeta(numItem){
+	function nuevaTarjeta(numItem, evento, lugar){
 		if(items != 0){
 			$(".entradas").replaceWith("<div class= 'item"+numItem+" princ'>"+
 			'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
@@ -155,10 +154,10 @@ $(document).ready(function(){
 								'<div class="card-block" >'+
 									'<img src="../img/1.jpg" class="card-img-top" alt="..." style=" height: 8rem; width: fill;">'+
 									'<div class="card-body">'+
-										'<h5 class="card-title" id="evento">Nombre del Evento </h5>'+
+										'<h5 class="card-title" id="evento">'+evento+'</h5>'+
 										'<h6 class="card-subtitle mb-2 text-muted" id="precio"> $$ Precio</h6>'+
 										'<p class="card-text" id="lugar">Lugar:</p>'+
-										'<p class="card-text" id="hora">Hora: </p>'+
+										'<p class="card-text" id="hora">Hora y fecha: '+lugar+'</p>'+
 									'</div>'+
 								'</div>'+
 							'<div class="card-footer">'+
@@ -168,7 +167,7 @@ $(document).ready(function(){
 							'<div class="atras">'+
 								'<div class="card-block">'+
 										'<div class="card-body">'+
-											'<h4 class="card-title" id="eventoAtras">Nombre del evento</h5>'+
+											'<h4 class="card-title" id="eventoAtras">'+evento+'</h5>'+
 											'<p class="card-text" id="solicitante">Nombre del solicitante</p>'+
 											'<p class="card-text" id="noEmpleados">Empleados</p>'+
 											'<p class="card-text" id="recursos">Mesas y sillas</p>'+
@@ -200,10 +199,10 @@ $(document).ready(function(){
 									'<div class="card-block" >'+
 										'<img src="../img/1.jpg" class="card-img-top" alt="..." style=" height: 8rem; width: fill;">'+
 										'<div class="card-body">'+
-											'<h5 class="card-title" id="evento">Nombre del Evento </h5>'+
+											'<h5 class="card-title" id="evento">'+evento+'</h5>'+
 											'<h6 class="card-subtitle mb-2 text-muted" id="precio"> $$ Precio</h6>'+
-											'<p class="card-text" id="lugar">Lugar:</p>'+
-											'<p class="card-text" id="hora">Hora: </p>'+
+											'<p class="card-text" id="lugar">Lugar:'+lugar+'</p>'+
+											'<p class="card-text" id="hora">Hora y fecha: '+lugar+'</p>'+
 										'</div>'+
 									'</div>'+
 								'<div class="card-footer">'+
@@ -213,7 +212,7 @@ $(document).ready(function(){
 								'<div class="atras">'+
 									'<div class="card-block">'+
 											'<div class="card-body">'+
-												'<h4 class="card-title" id="eventoAtras">Nombre del evento</h5>'+
+												'<h4 class="card-title" id="eventoAtras">'+evento+'</h5>'+
 												'<p class="card-text" id="solicitante">Nombre del solicitante</p>'+
 												'<p class="card-text" id="noEmpleados">Empleados</p>'+
 												'<p class="card-text" id="recursos">Mesas y sillas</p>'+
