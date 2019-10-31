@@ -2,9 +2,11 @@ $(document).ready(function(){
 	$('input[name=direccion]').prop("disabled",true);
 	$('input[name="fecha"]').prop("disabled", true);
 	$('input[name="evento"]').prop("disabled", true);
+	var numItem;
 
 		// CONTAMOS CUANTOS ITEM EXISTEN (TARJETAS)
-	var items =  document.getElementsByClassName("item").length;
+	var items =  document.getElementById("princ").length;
+	console.log(items);
 
 		//ACCCION PARA EL BOTON EDITAR
 	$(document).on('click', '.button1', function(){
@@ -40,7 +42,7 @@ $(document).ready(function(){
 
 			'<div class="form-group"><input type="date" class="fecha" id="datepicker" placeholder="Select date" required/></div>'+
 			'<div class="form-group"><input class="evento" placeholder="Escribe el nombre del evento" required/></div>'+
-			'<button type="submit" class="aceptar" id="boton">Aceptar</button>'+
+			'<button  class="aceptar" id="boton">Aceptar</button>'+
 			'<button class="cancelar" id="boton">Cancelar</button>'+
 			'</div>');
 		}else{
@@ -48,7 +50,7 @@ $(document).ready(function(){
 			'<h4>Parte delantera de la tarjeta</h4>'+
 			'<div class="form-group"><input type="date" class="fecha"  placeholder="Selecciona la fecha" required/></div>'+
 			'<div class="form-group"><input class="evento" placeholder="Escribe el nombre del evento" required/></div>'+
-			'<button type="submit" class="aceptar" id="boton">Aceptar</button>'+
+			'<button  class="aceptar" id="boton">Aceptar</button>'+
 			'<button class="cancelar" id="boton">Cancelar</button>'+
 			'</div>');
 		}
@@ -68,7 +70,10 @@ $(document).ready(function(){
 				data: datos
 			}).done(function(respuesta){
 				if (respuesta.estado === "ok") {
-					nuevaTarjeta();
+					numItem = respuesta.id;
+					evento = respuesta.nombreEvento;
+					lugar = respuesta.fecha;
+					nuevaTarjeta(numItem, evento, lugar);
 					Swal.fire({
 						type: 'success',
 						title: 'Has creado un evento nuevo',
@@ -105,8 +110,6 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click', '.enviarEdicion', function(){
-		
-
 	});
 
 	$(document).on('click', '.cancelEdicion', function () {
@@ -143,9 +146,9 @@ $(document).ready(function(){
 		}
 
 	}
-	function nuevaTarjeta(){
+	function nuevaTarjeta(numItem){
 		if(items != 0){
-			$(".entradas").replaceWith('<div class="item">'+
+			$(".entradas").replaceWith("<div class= 'item"+numItem+" princ'>"+
 			'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
 				'<div class="tarjeta" id="tarjeta">'+
 						'<div class="adelante card1">'+
@@ -178,8 +181,8 @@ $(document).ready(function(){
 				'</div> <!-- fin de tarjeta -->'+
 			'</div> <!-- fin de tarjeta wrap -->'+
 			'<div class="container p-3" id="buttons">'+
-				'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1" id="boton">Editar</button>'+
-				'<button class="button2" id ="boton" >Eliminar</button>'+
+				'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1 boton'+numItem+'" id="boton">Editar</button>'+
+				'<button class="button2 boton'+numItem+'" id ="boton" >Eliminar</button>'+
 			'</div>'+
 		'</div>'+
 		'<div class="nuevoEvento">'+
@@ -190,7 +193,7 @@ $(document).ready(function(){
 			if(items == 0){
 				$(".entradas").replaceWith(
 					'<div class="container p-4" style="display: flex;" id="primerDiv">'+
-					'<div class="item">'+
+					"<div class= 'item"+numItem+" princ'>"+
 				'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
 					'<div class="tarjeta" id="tarjeta">'+
 							'<div class="adelante card1">'+
@@ -228,12 +231,13 @@ $(document).ready(function(){
 				'</div>'+
 			'</div>'+
 			'<div class="nuevoEvento">'+
-					'<button class="btn btn-success newEvent" id="boton">Agregar evento</button>'+
+					'<button class="newEvent" id="boton">Agregar evento</button>'+
 			'</div>'+
 			'</div>');
 			}
 		}
 		
 	}
+
 
 });

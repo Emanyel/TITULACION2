@@ -4,8 +4,8 @@ $fecha = $_GET['fecha'];
 
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "emmanuel";
+    $password = "123456";
     $dbname = "titulacion2";
 
     // Create connection
@@ -15,7 +15,7 @@ $fecha = $_GET['fecha'];
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $query = "INSERT INTO eventos (nombre, fecha) VALUES ('$nombreEvento', '$fecha');";
+    $query = "INSERT INTO evento (nombre_evento, fecha) VALUES ('$nombreEvento', '$fecha');";
 
     if ($conn->query($query) === TRUE) {
         $lastId = $conn->insert_id; 
