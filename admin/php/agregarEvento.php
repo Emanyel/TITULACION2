@@ -1,21 +1,10 @@
 <?php
+include_once 'conexion.php';
 $nombreEvento = $_GET['nombreEvento'];
 $fecha = $_GET['fecha'];
 
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "titulacion2";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $query = "INSERT INTO eventos (nombre, fecha) VALUES ('$nombreEvento', '$fecha');";
+    $query = "INSERT INTO eventos (nombre, fecha) VALUES ('$nombreEvento', '$fecha');
+    SELECT * FROM eventos WHERE fecha='$fecha';";
 
     if ($conn->query($query) === TRUE) {
         $lastId = $conn->insert_id; 
@@ -26,7 +15,7 @@ $fecha = $_GET['fecha'];
             'estado' => 'ok',
             'nombreEvento' => $nombreEvento, 
             'fecha' => $fecha,
-            'id' => $lastId
+            'id' => $lastId,
             );
             //Devolvemos el array pasado a JSON como objeto
             echo json_encode($datos, JSON_FORCE_OBJECT);
