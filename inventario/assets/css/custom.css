@@ -26,6 +26,9 @@ body {
     padding: 15px 15px;
     min-height: 600px;
     background:#F3F3F3;
+#ad_this{
+  padding-left: 120px;
+}
 
 }
 #page-inner {
