@@ -82,7 +82,6 @@ a{
 /* HEADER */
 
 .contenido-header{
-    height: 100vh;
     background-image: url('../img/imagen-fondo.png');
     background-size: cover;
     background-position: center center;
@@ -95,6 +94,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 .nav-logo a{
@@ -102,32 +102,83 @@ a{
     letter-spacing: 5px;
     font-size: 1.8rem;
     font-weight: 700;
+    
 }
 
+.ancla-menu{
+    display: none;
+}
 
 .nav-link a{
     color: white;
     font-size: 1.4rem;
     margin: 0px 10px;
     letter-spacing: 1px;
+    
 }
 
 .nav-link a:last-of-type{
     margin: 0px;
 }
 
+
+@media (max-width: 1024px){
+
+    .barra{
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .fa-bars{
+        font-size: 2.4rem;
+    }
+
+    .nav-logo a{
+      display: none;
+    }
+
+    .ancla-menu{
+        display: inline-block;
+        text-align: center;
+        margin: 1rem 0rem;
+        padding: 10px 0;
+        width: 100%;
+        color: white;
+    }
+
+    .nav-link{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .nav-link a{
+        text-align: center;
+        margin: 1rem 0rem;
+        padding: 10px 0;
+        width: 100%;
+    }
+    .nav-link a:last-of-type{
+       display: none;
+    }
+
+    .desaparece{
+        display: none;
+    }
+
+    
+
+}
+
+
 .nav-link a:hover{
     border-bottom: 2px solid white;
 }
 
-@media (max-width: 800px){
-
-    .barra{    
-        justify-content: center;
-    }
-
-    .nav-link a{
-        display: none;
+@media (max-width: 1024px){
+    .nav-link a:hover{
+        border-bottom: none;
     }
 }
 
@@ -217,8 +268,6 @@ a{
         width: 25%;   
     }
 }
-
-
 
 /* COTIZAR */
 
