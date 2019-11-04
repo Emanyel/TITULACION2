@@ -25,7 +25,6 @@ $(document).ready(function(){
     $(document).on('click', '#quitarSillas', function(){
         document.getElementById('sillas').value = --contador;
     });
-
     var contador1 = 0
     $(document).on('click', '#agregarMesas', function(){
         document.getElementById('mesas').value = ++contador1;
@@ -34,19 +33,72 @@ $(document).ready(function(){
         document.getElementById('mesas').value = --contador1;
     });
 
-    var formulario = document.getElementsByClassName('.form');
-    $(document).on('submit', '.form', function(e){
+
+    $(document).on('click', '.enviarEdicion', function(e){
         e.preventDefault();
-        var datos = ($(this).serializeArray());
+       var cliente = document.getElementsByClassName('nombreCliente');
+       var apellido= document.getElementsByClassName('apellido');
+       var telefono = document.getElementsByClassName('numeroContacto');
+       var correo = document.getElementsByClassName('correo') ;
+       var mesas = document.getElementsByClassName('mesas');
+        var extras = document.getElementsByClassName('sillas');
+       var datos;
+       if($('input[name=direccion]').prop('disabled') && $('input[name="fecha"]').prop('disabled') && $('input[name="evento"]').prop('disabled')){
         
-        fetch('edicion.php',{
-            method: 'POST',
-            body: datos
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
+       datos = {"cliente":cliente, "apellidos": apellido, "telefono":telefono, "correo":correo, "mesas":mesas, "extras":extras};
+       $.ajax({
+        url: "../php/edicionEvento.php",
+        type:"POST",
+        data: datos
+    }).done(function(respuesta){
+        if(respuesta == "ok"){
+            Swal.fire({
+                type: 'success',
+                title: 'Los cambios se han guardado satisfactoriamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }else{
+            Swal.fire({
+                type: 'error',
+                title: 'Algo salió mal, inténtalo mas tarde',
+                showConfirmButton: false,
+                timer: 1500
+            })  
+        }
+    });    
+    
+    }else{
+        var nombreEvento = document.getElementsByClassName('evento');
+        var direccion = document.getElementsByClassName('direccion');
+        var fechaEvento = document.getElementsByClassName('fecha');
+    
+        datos = {"cliente":cliente, "apellidos":apellido, "telefono":telefono, "correo": correo, "evento": nombreEvento, "direccion":direccion, "fecha":fechaEvento, "mesas":mesas, "extras":extras}
+        $.ajax({
+            url: "../php/edicionEvento.php",
+            type:"POST",
+            data: datos
+        }).done(function(respuesta){
+            if(respuesta == "ok"){
+                Swal.fire({
+                    type: 'success',
+                    title: 'Los cambios se han guardado satisfactoriamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }else{
+                Swal.fire({
+                    type: 'error',
+                    title: 'Algo salió mal, inténtalo mas tarde',
+                    showConfirmButton: false,
+                    timer: 1500
+                })  
+            }
+        });   
+    }
+
+    
+       
     });
     
     

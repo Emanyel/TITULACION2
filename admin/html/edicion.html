@@ -27,31 +27,30 @@
 </head>
 <body>
 <div class="container p-4">
-    <form action="../php/edicion.php" method="post" class="form">
         <div id="edicion">
             <div class="container p-4"id="contacto">
                     <h3>Contacto del cliente</h3>
                     <label for="">Nombre(s) del cliente</label>
-                    <div class="form-group"><input type="text" name="nombreCliente" placeholder="p. ej. Juan Carlos" required/></div>
+                    <div class="form-group"><input type="text" class="nombreCliente" placeholder="p. ej. Juan Carlos" required/></div>
                     <label for="">Apellido(s)</label>
-                    <div class="form-group"><input type="text" name="apellido" placeholder="p. ej. Hernandez Serrano" required/></div>
+                    <div class="form-group"><input type="text" class="apellido" placeholder="p. ej. Hernandez Serrano" required/></div>
                     <label for="">Número de contacto</label>
-                    <div class="form-group"><input type="text" name="numeroContacto" class="telefono" placeholder="p. ej. 55151656"  required/></div>
+                    <div class="form-group"><input type="text" class="numeroContacto" class="telefono" placeholder="p. ej. 55151656"  required/></div>
                     <label for="">Correo electrónico</label>
-                    <div class="form-group"><input type="email" name="correo" class="correo" placeholder="p. ej. alguien@gmail.com" required/></div>
+                    <div class="form-group"><input type="email" class="correo" class="correo" placeholder="p. ej. alguien@gmail.com" required/></div>
             </div>
             <div class="container p-4" id="parteDelantera">
                 <h3>Parte delantera de la tarjeta</h3>
                 <label for="">Nombre del evento</label>
                 <div class="form-group">
-                <input type="text" name="evento" placeholder="p. ej. XV años, Boda, Festival" disabled required/></div>
+                <input type="text" class="evento" placeholder="p. ej. XV años, Boda, Festival" disabled required/></div>
     
                 <label for="">Direccion del evento</label>
                 <div class="form-group">
-                    <input type="text" name="direccion" placeholder="p. ej. Cd. Frailecillas. Mz. 11. Lt. 24 Casa A"  disabled required/></div>
+                    <input type="text" class="direccion" placeholder="p. ej. Cd. Frailecillas. Mz. 11. Lt. 24 Casa A"  disabled required/></div>
                     <label for="">Selecciona cuando sera el evento</label>
                     <div class="form-group">
-                        <input type="date" name="fecha" placeholder="dd/mm/yyyy" disabled required/></div>
+                        <input type="date" class="fecha" placeholder="dd/mm/yyyy" disabled required/></div>
             <button class="btn btn-primary" id="editarDelantera">Editar</button>
             <button class="btn btn-primary" id="cancelarDelantera">Cancelar</button>
             </div>
@@ -62,7 +61,7 @@
                         <h5>Mesas y sillas</h5>
                         <div><strong><i> *NOTA: Cada mesa contiene 10 sillas</i></strong></div>
                         <div class="mesas" id="iconos"><img src="../images/icons/mesas.svg" alt="" srcset=""></div>
-                        <input type="text" id="mesas" name="mesas" required>
+                        <input type="text" id="mesas" class="mesas" required>
                         <button class="btn btn-primary" id="agregarMesas">Agregar mesas</button>
                         <button class="btn btn-secondary" id="quitarMesas" >Quitar mesas</button>
                     </div>
@@ -75,7 +74,7 @@
                     <div class="container p-4">
                         <h5>Extras</h5>
                         <div id="iconos"><img src="../images/icons/silla.svg" alt="" srcset=""></div> 
-                        <input type="text" id="sillas" name="sillas" required>
+                        <input type="text" id="sillas" class="sillas" required>
                         <button class="btn btn-success" id="agregarSillas">Agregar sillas</button>
                     <button class="btn btn-secondary" id="quitarSillas">Quitar sillas</button>
                         
@@ -87,11 +86,11 @@
                     <div class="total" ></div>
         </div>
         
-    </form>
+    
     <div class="container p-4" id="botones">
-        <button type="submit" class="enviarEdicion" id="boton">Enviar datos</button>
+        <button type="button" class="enviarEdicion" id="boton">Enviar datos</button>
         <button type="button" class="cancelarEdicion" id="boton" >Cancelar</button>
-</div>
+    </div>
 </div>
 </body>
 </html>
