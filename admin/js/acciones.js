@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$('input[name=direccion]').prop("disabled",true);
 	$('input[name="fecha"]').prop("disabled", true);
 	$('input[name="evento"]').prop("disabled", true);
-	var numItem;
+	numItem = "";
 	var items = [{}];
 
 		// CONTAMOS CUANTOS ITEM EXISTEN (TARJETAS)
@@ -95,6 +95,13 @@ $(document).ready(function(){
 								confirmButtonText: "Ok"
 							  })
 							console.log(JSON.stringify(respuesta));
+						}else{
+							Swal.fire({
+								type: 'error',
+								text: 'No puedes agregar mas de 3 eventos en un dia',
+								showConfirmButton: true,
+								confirmButtonText: 'Ok'
+							});
 						}
 					});
 				
@@ -170,6 +177,8 @@ $(document).ready(function(){
 
 	}
 	function nuevaTarjeta(numItem, evento, lugar){
+		//GUARDAMOS EL ID EN UNA SESION DEL NAVEGADOR
+		sessionStorage.setItem("idEvento", numItem);
 		if(items != 0){
 			$(".entradas").replaceWith("<div class= 'item"+numItem+" princ'>"+
 			'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
@@ -273,7 +282,6 @@ $(document).ready(function(){
 			}
 		})
 	}
-
 	function eliminar(){
 		var nombres = document.getElementById('evento');
 		console.log(nombres);

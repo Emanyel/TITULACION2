@@ -2,9 +2,8 @@
 include_once 'conexion.php';
 $nombreEvento = $_GET['nombreEvento'];
 $fecha = $_GET['fecha'];
-$direccion = $_GET['direccion'];
 
-    $query = "INSERT INTO eventos (nombre, fecha) VALUES ('$nombreEvento', '$fecha');";
+    $query = "INSERT INTO evento (nombre_evento, fecha) VALUES ('$nombreEvento', '$fecha');";
 
     if ($conn->query($query) === TRUE) {
         $lastId = $conn->insert_id; 
@@ -15,13 +14,17 @@ $direccion = $_GET['direccion'];
             'estado' => 'ok',
             'nombreEvento' => $nombreEvento, 
             'fecha' => $fecha,
+            'direccion',
             'id' => $lastId,
             );
             //Devolvemos el array pasado a JSON como objeto
-            $query = "INSERT INTO descripcionEventos (id_evento) VALUES ($lastId) ON DUPLICATE KEY UPDATE direccion=$direccion";
             echo json_encode($datos, JSON_FORCE_OBJECT);
     } else {
-        echo "Error: " . $query . "<br>" . $conn->error;
+        $datos1 = array(
+            'estado' => 'bad'
+        );
+        //Devolvemos el array pasado a JSON como objeto
+        echo json_encode($datos1, JSON_FORCE_OBJECT);
     }
     $conn->close();
 ?>
