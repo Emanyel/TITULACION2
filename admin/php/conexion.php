@@ -1,13 +1,13 @@
 <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "titulacion2";
+  $DBhost = "localhost";
+  $DBuser = "root";
+  $DBpass = "";
+  $DBname = "titulacion2";
 
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
+  try{
+    $DBcon = new PDO("mysql:host=$DBhost;dbname=$DBname",$DBuser,$DBpass);
+    $DBcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   }catch(PDOException $ex){
+    die($ex->getMessage());
+   }
 ?>
