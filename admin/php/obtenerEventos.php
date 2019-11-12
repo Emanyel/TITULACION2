@@ -1,5 +1,6 @@
 <?php
-include_once 'conexion.php';
+include_once 'conexion2.php';
+
 
 $query = "SELECT * FROM evento";
 $stmt = $DBcon->prepare($query);

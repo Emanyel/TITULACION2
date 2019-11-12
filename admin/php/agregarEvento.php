@@ -1,5 +1,6 @@
 <?php
 include_once 'conexion.php';
+
 $nombreEvento = $_GET['nombreEvento'];
 $fecha = $_GET['fecha'];
 

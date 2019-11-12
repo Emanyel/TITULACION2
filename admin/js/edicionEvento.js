@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+var total=0;
     $('input[name=direccion]').prop("disabled",true);
 	$('input[name="fecha"]').prop("disabled", true);
     $('input[name="evento"]').prop("disabled", true);
@@ -19,18 +19,56 @@ $(document).ready(function(){
     var contador = 0;
     $(document).on('click', '#agregarSillas', function(){
         document.getElementById('sillas').value = ++contador;
+
     });
     $(document).on('click', '#quitarSillas', function(){
         document.getElementById('sillas').value = --contador;
+        
     });
     var contador1 = 0
     $(document).on('click', '#agregarMesas', function(){
         document.getElementById('mesas').value = ++contador1;
+        //CALCULAMOS LA CANTIDAD DE SILLAS UTILIZADAS
+        mesasN = contador1*10;
+        total = total+mesasN;
+        console.log("total" + total);
+        document.getElementsByClassName('total').innerHTML = total;
+        console.log(mesasN);
+
     });
     $(document).on('click', '#quitarMesas', function(){
         document.getElementById('mesas').value = --contador1;
+        //CALCULAMOS LA CANTIDAD DE SILLAS UTILIZADAS
+        mesasN = contador1*10;
+        total = total+mesasN;
+        document.getElementsByClassName('total').innerHTML = total;
+        console.log(mesasN);
+        console.log(total);
     });
 
+        $(".mesas").change(function(){
+            var vals = $(this).val();
+            sillasNum = vals * 10;
+            total = total+ vals;
+            document.getElementsByClassName('total').innerHTML = total;
+            console.log(mesasNum);
+            console.log(total);
+        });
+
+        $(".sillas").change(function(){
+            var vals = $(this).val();
+            console.log(vals);
+        });
+    $(document).on('click', '.inflable', function(){
+        total = total+350;
+        console.log(total);
+        document.getElementsByClassName('total').innerHTML = total;
+    });
+    $(document).on('click', '.brincolin', function () {
+        total = total+450;
+        console.log(total);
+        document.getElementsByClassName('total').innerHTML = total;
+      });
 
     $(document).on('click', '.enviarEdicion', function(e){
         e.preventDefault();
@@ -117,4 +155,6 @@ $(document).ready(function(){
         })
         
     });
+
+    
 });

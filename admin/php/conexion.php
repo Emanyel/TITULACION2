@@ -1,13 +1,14 @@
 <?php
+
   $DBhost = "localhost";
   $DBuser = "root";
   $DBpass = "";
   $DBname = "titulacion2";
 
-  try{
-    $DBcon = new PDO("mysql:host=$DBhost;dbname=$DBname",$DBuser,$DBpass);
-    $DBcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   }catch(PDOException $ex){
-    die($ex->getMessage());
-   }
+  $conn = new mysqli($DBhost, $DBuser, $DBpass, $DBname);
+  if ($conn->connect_errno) {
+      echo "Fallo al conectar a MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
+  }
+
+
 ?>

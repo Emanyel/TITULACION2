@@ -3,9 +3,12 @@ $(document).ready(function(){
 	$('input[name=direccion]').prop("disabled",true);
 	$('input[name="fecha"]').prop("disabled", true);
 	$('input[name="evento"]').prop("disabled", true);
+	
+	//VARIABLES GLOBALES
 	numItem = "";
-
+	var element;
 	var items = [{}];
+	var eliminar;
 
 		// CONTAMOS CUANTOS ITEM EXISTEN (TARJETAS)
 	var items =  document.getElementsByClassName('princ').length;
@@ -13,11 +16,15 @@ $(document).ready(function(){
 
 		//ACCCION PARA EL BOTON EDITAR
 	$(document).on('click', '.button1', function(){
+		
 		window.open('../html/edicion.html', '_blank');
 	});
 		//ACCCION PARA EL BOTON ELIMINAR
 	$(document).on('click', '.button2', function(){
-		var classItem = $(this).attr('class');
+		//OBTENEMOS EL ID DE LA TARJETA
+		element = $(this).attr("class");
+		element = element.charAt(element.length-1);
+		console.log(element);
 		Swal.fire({
 			type:'warning',
 			title: 'Estas seguro?',
@@ -29,21 +36,22 @@ $(document).ready(function(){
 			confirmButtonText: 'Si, hazlo!'
 		  }).then((result) => {
 			if (result.value) {
-				eliminarEvento(classItem);
-				if(eliminarEvento){
+				eliminarEvento(element);
+				if(eliminar == true){
+					$("div.item"+element).replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
 					Swal.fire(
 						'Borrado!',
 						'El evento ha sido borrado',
 						'success'
 					  )
-				}else{
+				}else{ if(eliminar == false){
 					Swal.fire({
 						type: 'error',
 						text: 'Algo salio mal, intentalo mas tarde',
 						showConfirmButton: true,
 						confirmButtonText: 'Ok'
 					});
-
+					}
 				}
 			  
 			}
@@ -117,7 +125,6 @@ $(document).ready(function(){
 							});
 						}
 					});
-				
 				}
 			})
 		}else{
@@ -225,7 +232,7 @@ $(document).ready(function(){
 							'</div><!-- fin de atras-->'+
 				'</div> <!-- fin de tarjeta -->'+
 			'</div> <!-- fin de tarjeta wrap -->'+
-			'<div class="container p-3" id="buttons">'+
+			'<div class="container p-3 cajaBotones" id="buttons">'+
 				'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1 boton'+numItem+'" id="boton">Editar</button>'+
 				'<button class="button2 boton '+numItem+'" id ="boton" >Eliminar</button>'+
 			'</div>'+
@@ -270,7 +277,7 @@ $(document).ready(function(){
 								'</div><!-- fin de atras-->'+
 					'</div> <!-- fin de tarjeta -->'+
 				'</div> <!-- fin de tarjeta wrap -->'+
-				'<div class="container p-3" id="buttons">'+
+				'<div class="container p-3 cajaBotones" id="buttons">'+
 					'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1" id="boton">Editar</button>'+
 					'<button class="button2 "'+numItem+' id ="boton" >Eliminar</button>'+
 				'</div>'+
@@ -283,37 +290,20 @@ $(document).ready(function(){
 		}
 		
 	}
-	function eliminar(){
-		var nombres = document.getElementById('evento');
-		console.log(nombres);
-		var fechas = document.getElementById('hora');
-		var id;
-		nombres ={"nombre":nombres, "fecha": fechas};
-		$.ajax({
-			url: '../php/obtenerItem.php',
-			type: 'GET',
-			data: nombres
-		}).done(function(){
-			if(respuesta.estado == "ok"){
-				id= respuesta;
-			}
-		});
-	}
 	function cargarEventos(){
 		$.ajax({
 			url: '../php/obtenerEventos.php',
 			type: 'GET',
 		}).done(function(data){
 			if($.isEmptyObject(data)){
+				;
 				console.log("Sin eventos");
 			}else{
 				var eventos = JSON.parse(data);
 				var aux = Object.keys(eventos);
 				//REEMPLAZAR BOTON AGREGAR EVENTO
-				$(".nuevoEvento").replaceWith("<div class='itemss'></div>");
-
 				for(var i=0; i< eventos.length; i++){
-				$(".itemss").append("<div class= 'item"+eventos[i].id+" princ'>"+
+				$(".item").append("<div class= 'item"+eventos[i].id+" princ'>"+
 				'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
 					'<div class="tarjeta" id="tarjeta">'+
 							'<div class="adelante card1">'+
@@ -345,7 +335,7 @@ $(document).ready(function(){
 								'</div><!-- fin de atras-->'+
 					'</div> <!-- fin de tarjeta -->'+
 				'</div> <!-- fin de tarjeta wrap -->'+
-				"<div class='container p-3' id='boton'>"+
+				"<div class='container p-3 cajaBoton' id='boton'>"+
 					'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1 boton'+numItem+'" id="boton">Editar</button>'+
 					"<button class='button2 boton item"+eventos[i].id+"' id ='boton' >Eliminar</button>"+
 				'</div>'+
@@ -358,17 +348,17 @@ $(document).ready(function(){
 
 		});
 	}
-	function eliminarEvento(classItem){
+	function eliminarEvento(element){
+		var data = {"id":element};
 		$.ajax({
-			url: '../php/eliminarEvento.php',
+			url: '../php/eliminarEventos.php',
 			type: 'POST',
-			data: classItem
-		}).done(function(re){
-			if(respuesta.estado == 'ok'){
-				$(classItem).replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
-				return true;
+			data: data
+		}).done(function(respuesta){
+			if(respuesta.estado === 'ok'){
+				eliminar = true;
 			}else{
-				return false;
+				eliminar = false;
 			}
 		});
 	}
