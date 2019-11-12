@@ -1,132 +1,224 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-      <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administrador Alquiladora</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+ <title>Inventario </title>
+ <link rel="stylesheet" href="C:\ALQUILADORA\ALQUILADORA.github.io-master\admin\style\estilos.css">
+<!-- Bootstrap core CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="assets/css/small-business.css" rel="stylesheet">
 </head>
-
 <body>
+  <!-- Navigation -->
+  <div class="barra pad-lados">
+      <div class="nav-logo">
+          <a href="C:\ALQUILADORA\ALQUILADORA.github.io-master\index.html" class="mayusculas">
+              karina
+          </a>
+      </div>
 
-   <div id="wrapper">
-         <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="adjust-nav">
-                <span class="logout-spn" >
-                  <a  style="color:#fff;">ALQUILADORA KARINA</a>
-                </span>
+  <a href="#" id="boton-resp" class="mayusculas ancla-menu"><i class="fas fa-bars"></i></a>
 
-            </div>
-        </div>
+      <div class="nav-link">
 
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
+          <a href="C:\ALQUILADORA\ALQUILADORA.github.io-master\inventario\index.html" class="mayusculas">Inventario</a>
+      </div>
+  </div>
 
+  <!-- Page Content -->
+  <div class="container">
 
+    <!-- Heading Row -->
+    <!-- /.row -->
 
-                    <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-desktop "></i>Inventario</a>
-                    </li>
-
-
-                    <li>
-                        <a href="C:\ALQUILADORA\ALQUILADORA.github.io-master\index.html"><i class="fa fa-table "></i>Salir  </a>
-                    </li>
-
-
-
-                </ul>
-                            </div>
-
-        </nav>
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-lg-12">
-                     <h2>INVENTARIO DE SILLAS</h2>
-                    </div>
-                </div>
-                 <!-- /. ROW  -->
-                  <hr />
-                <div class="row">
-                    <div class="col-lg-12 ">
-                        <div class="alert alert-info " >
-                             <strong>Bienvenido Administrador! </strong>
-                        </div>
-
-                    </div>
-                    </div>
-                  <!-- /. ROW  -->
-<div class="row text-center pad-top">
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                      <div class="div-square">
-                           <a href="insillas.html" >
-<img src="C:\ALQUILADORA\ALQUILADORA.github.io-master\inventario\assets\img\chair.png">
-                      <h4>Sillas</h4>
-                      </a>
-                      </div>
-
-
-                  </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                      <div class="div-square">
-                           <a href="inmesas.html" >
- <img src="C:\ALQUILADORA\ALQUILADORA.github.io-master\inventario\assets\img/table.png">
-                      <h4>Mesas</h4>
-                      </a>
-                      </div>
-                  </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                      <div class="div-square">
-                      <a href="incubiertos.html" >
-                        <img src="C:\ALQUILADORA\ALQUILADORA.github.io-master\inventario\assets\img/cutlery.png">
-
-                      <h4>Cubiertos</h4>
-                      </a>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                  
-
-</div>
-
-                  <!-- /. ROW  -->
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">EN ESTA PARTE USTED PUEDE GESTIONAR EL INVENTARIO DE SILLAS </p>
+      </div>
     </div>
-             <!-- /. PAGE INNER  -->
+
+
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-6 mb-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">SILLAS</h2>
+            <p class="card-text"></p>
+            <img src="C:\ALQUILADORA\ALQUILADORA.github.io-master\inventario\assets\img\chair.png">
+
             </div>
-         <!-- /. PAGE WRAPPER  -->
+          <div class="row">
+  <div class="col-6">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agregar</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Modificar</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Eliminar</a>
+    </div>
+  </div>
+  </div>
         </div>
-    <div class="footer">
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-6 mb-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="col-8">
+              <div class="tab-content align:center" id="nav-tabContent">
 
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                  <h2 class="card-title">Agregar sillas </h2>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="mostrar-precio">Cubre silla</label>
+                    <select class="form-control" id="mostrar-precio">
+                          <option value="1">Sí</option>
+                          <option value="0">No</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend" id="priceshow">
+                        <span class="input-group-text" id="priceshow">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                </div>
 
-            <div class="row">
-                <div class="col-lg-12" >
-                    &copy;  2019 Alquiladora de Eventos Karina <a href="" style="color:#fff;" target="_blank"></a>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                  <h2 class="card-title">Modificar sillas </h2>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="mostrar-precio">Cubre silla</label>
+                    <select class="form-control" id="mostrar-precio">
+                          <option value="1">Sí</option>
+                          <option value="0">No</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend" id="priceshow">
+                        <span class="input-group-text" id="priceshow">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                  <h2 class="card-title">Eliminar sillas </h2>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="mostrar-precio">Cubre silla</label>
+                    <select class="form-control" id="mostrar-precio">
+                          <option value="1">Sí</option>
+                          <option value="0">No</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend" id="priceshow">
+                        <span class="input-group-text" id="priceshow">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                </div>
                 </div>
             </div>
+
+            <p class="card-text"></p>
+          </div>
+
         </div>
+      </div>
+      <!-- /.col-md-4 -->
 
+      <!-- /.col-md-4 -->
 
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+    </div>
+    <!-- /.row -->
 
+  </div>
+  <br>
+  <br>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="page-footer font-small unique-color-dark">
+
+  <div style="background-color: #4BAEA0;">
+    <div class="container">
+
+        <!-- Copyright -->
+        <!-- Grid row-->
+      <div class="row py-4 d-flex align-items-center">
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:ALQUILADORA KARINA
+          </div>
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
