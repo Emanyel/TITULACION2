@@ -6,25 +6,22 @@ $(document).ready(function(){
 	
 	//VARIABLES GLOBALES
 	numItem = "";
-	var element;
+	var elementId;
 	var items = [{}];
-	var eliminar;
+	eliminar = null;
 
-		// CONTAMOS CUANTOS ITEM EXISTEN (TARJETAS)
-	var items =  document.getElementsByClassName('princ').length;
-	console.log(items);
 
 		//ACCCION PARA EL BOTON EDITAR
 	$(document).on('click', '.button1', function(){
-		
 		window.open('../html/edicion.html', '_blank');
 	});
 		//ACCCION PARA EL BOTON ELIMINAR
 	$(document).on('click', '.button2', function(){
 		//OBTENEMOS EL ID DE LA TARJETA
 		element = $(this).attr("class");
-		element = element.charAt(element.length-1);
 		console.log(element);
+		elementId = element.substr(17, element.length-2);
+		console.log(elementId);
 		Swal.fire({
 			type:'warning',
 			title: 'Estas seguro?',
@@ -36,30 +33,15 @@ $(document).ready(function(){
 			confirmButtonText: 'Si, hazlo!'
 		  }).then((result) => {
 			if (result.value) {
-				eliminarEvento(element);
-				if(eliminar == true){
-					$("div.item"+element).replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
-					Swal.fire(
-						'Borrado!',
-						'El evento ha sido borrado',
-						'success'
-					  )
-				}else{ if(eliminar == false){
-					Swal.fire({
-						type: 'error',
-						text: 'Algo salio mal, intentalo mas tarde',
-						showConfirmButton: true,
-						confirmButtonText: 'Ok'
-					});
-					}
-				}
-			  
+				eliminarEvento(elementId);
 			}
+			  
 		})
 
 	});
 		//ACCION PARA EL BOTON CREAR UN NUEVO EVENTO
 	$(document).on('click', '.newEvent', function(){
+	
 		if(items != 0){
 			$('.nuevoEvento').replaceWith('<div class="entradas">'+
 			'<h4>Parte delantera de la tarjeta</h4>'+
@@ -108,6 +90,7 @@ $(document).ready(function(){
 							numItem = respuesta.id;
 							evento = respuesta.nombreEvento;
 							lugar = respuesta.fecha;
+							cargarEventos();
 							nuevaTarjeta(numItem, evento, lugar);
 							Swal.fire({
 								type: 'success',
@@ -160,6 +143,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click', '.enviarEdicion', function(){
+
 	});
 
 	$(document).on('click', '.cancelEdicion', function () {
@@ -196,9 +180,9 @@ $(document).ready(function(){
 		}
 
 	}
+
 	function nuevaTarjeta(numItem, evento, lugar){
 		//GUARDAMOS EL ID EN UNA SESION DEL NAVEGADOR
-		sessionStorage.setItem("idEvento", numItem);
 		if(items != 0){
 			$(".entradas").replaceWith("<div class= 'item"+numItem+" princ'>"+
 			'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
@@ -290,78 +274,97 @@ $(document).ready(function(){
 		}
 		
 	}
+	
 	function cargarEventos(){
 		$.ajax({
 			url: '../php/obtenerEventos.php',
 			type: 'GET',
 		}).done(function(data){
-			if($.isEmptyObject(data)){
-				;
-				console.log("Sin eventos");
-			}else{
+			if(data.length != 2){
 				var eventos = JSON.parse(data);
 				var aux = Object.keys(eventos);
 				//REEMPLAZAR BOTON AGREGAR EVENTO
+				
 				for(var i=0; i< eventos.length; i++){
-				$(".item").append("<div class= 'item"+eventos[i].id+" princ'>"+
-				'<div class="tarjeta-wrap" style="float: left;"  id="tarjeta-wrap">'+
-					'<div class="tarjeta" id="tarjeta">'+
-							'<div class="adelante card1">'+
-									'<div class="card-block" >'+
-										'<img src="../img/1.jpg" class="card-img-top" alt="..." style=" height: 8rem; width: fill;">'+
-										'<div class="card-body">'+
-											'<h5 class="card-title" id="evento">'+eventos[i].nombre_evento+'</h5>'+
-											'<h6 class="card-subtitle mb-2 text-muted" id="precio"> $$ Precio</h6>'+
-											'<p class="card-text" id="lugar">Lugar:'+eventos[i].direccion+'</p>'+
-											'<p class="card-text" id="hora">Hora y fecha: '+eventos[i].fecha+'</p>'+
-										'</div>'+
-									'</div>'+
-								'<div class="card-footer">'+
-									'<small class="text-muted">Last updated 3 mins ago</small>'+
-								'</div>'+
-							'</div> <!-- FIN DE ADELANTE -->'+
-								'<div class="atras">'+
-									'<div class="card-block">'+
-											'<div class="card-body">'+
-												'<h4 class="card-title" id="eventoAtras">'+eventos[i].nombre_evento+'</h5>'+
-												'<p class="card-text" id="solicitante">Nombre del solicitante</p>'+
-												'<p class="card-text" id="noEmpleados">Empleados</p>'+
-												'<p class="card-text" id="recursos">Mesas y sillas</p>'+
-												'<p class="card-text" id="entretenimiento">Entretenimiento</p>'+
-												'<p class="card-text" id="musica">Musica</p>'+
-												'<p class="card-text" id="extras">Extras</p>'+
-											'</div>'+
-									'</div>'+
-								'</div><!-- fin de atras-->'+
-					'</div> <!-- fin de tarjeta -->'+
-				'</div> <!-- fin de tarjeta wrap -->'+
-				"<div class='container p-3 cajaBoton' id='boton'>"+
-					'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1 boton'+numItem+'" id="boton">Editar</button>'+
-					"<button class='button2 boton item"+eventos[i].id+"' id ='boton' >Eliminar</button>"+
-				'</div>'+
-			'</div>'+
-			'<div class="nuevoEvento">'+
-					'<button class="btn btn-success newEvent" id="boton">Agregar evento</button>'+
-			'</div>');
+					console.log(eventos[i].id);
+				$(".divP").append(
+					"<div class='item"+eventos[i].id+" princ'>"+
+							"<div class='tarjeta-wrap' style='float: left;'  id='tarjeta-wrap'>"+
+								"<div class='tarjeta' id='tarjeta'>"+
+										"<div class='adelante card1'>"+
+												"<div class='card-block' >"+
+													"<img src='../img/1.jpg' class='card-img-top' alt='...' style=' height: 8rem; width: fill;'/>"+
+													"<div class='card-body'>"+
+														"<h5 class='card-title' id='evento'>"+eventos[i].nombre_evento +"</h5>"+
+														"<h6 class='card-subtitle mb-2 text-muted' id='precio'> $$ Precio</h6>"+
+														"<p class='card-text' id='lugar'>Lugar: "+ eventos[i].direccion+"</p>"+
+														"<p class='card-text' id='hora'>Hora: "+eventos[i].fecha+"</p>"+
+													"</div>"+
+												"</div>"+
+											"<div class='card-footer'>"+
+												"<small class='text-muted'>Last updated 3 mins ago</small>"+
+											"</div>"+
+							"</div>"+
+								"<div class='atras'>"+
+									"<div class='card-block'>"+
+											"<div class='card-body'>"+
+												"<h4 class='card-title' id='eventoAtras'>Nombre del evento</h5>"+
+												"<p class='card-text' id='solicitante'>Nombre del solicitante</p>"+
+												"<p class='card-text' id='noEmpleados'>Empleados</p>"+
+												"<p class='card-text' id='recursos'>"+eventos[i].mesas+"</p>"+
+												"<p class='card-text' id='entretenimiento'>Entretenimiento</p>"+
+												"<p class='card-text' id='musica'>Musica</p>"+
+												"<p class='card-text' id='extras'>Extras</p>"+
+											"</div>"+
+									"</div>"+
+								"</div>"+
+					"</div>"+
+				"</div>"+
+				"<div class='container p-3' id='buttons'>"+
+					"<button data-toggle='modal' data-target='#add_data_Modal' class='button1 botonnumItem'"+eventos[i].id +" id='boton'>Editar</button>"+
+					"<button class='button2 boton numItem"+eventos[i].id +"' id ='boton' >Eliminar</button>"+
+				"</div>"+
+				"</div>");
+				}
+			}else{
+				console.log("No hay eventos");
+				$('#primerDiv').replaceWith(
+					"<div class='container p-4 inicio' > <p>Aqui es donde se mostrarán todos tus eventos."+
+						 " Para agregar un nuevo evento da click en el boton y llena los campos correspondientes</p>"+
+						 "<div class='container p-4 nuevoEvento'>"+
+							 "<button class='newEvent' id='boton'>Agregar evento</button>"+
+						 "</div>"+
+					"</div>");
 			}
-		}
 
 		});
 	}
-	function eliminarEvento(element){
-		var data = {"id":element};
+	function eliminarEvento(elementId){
+		var regex = /(\d+)/g;
+		var aux = elementId.match(regex);
+		console.log(aux);
+		var data = {"id":aux.toString()};
 		$.ajax({
 			url: '../php/eliminarEventos.php',
 			type: 'POST',
 			data: data
 		}).done(function(respuesta){
 			if(respuesta.estado === 'ok'){
-				eliminar = true;
+				$("div.item"+aux.toString()).replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
+				Swal.fire(
+					'Borrado!',
+					'El evento ha sido borrado',
+					'success'
+				  )		
 			}else{
-				eliminar = false;
+				Swal.fire({
+					type: 'error',
+					text: 'Algo salio mal, intentalo mas tarde',
+					showConfirmButton: true,
+					confirmButtonText: 'Ok'
+				});
 			}
 		});
 	}
-
 
 });

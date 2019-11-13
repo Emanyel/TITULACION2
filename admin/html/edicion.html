@@ -62,11 +62,20 @@
                         <div><strong><i> *NOTA: Cada mesa contiene 10 sillas</i></strong></div>
                         <div class="mesas" id="iconos"><img src="../images/icons/mesas.svg" alt="" srcset=""></div>
                         <div><h5>Seleccione el tipo de mesas que desee usar. Pueden ser ambas opciones</h5></div>
-                        <div><input type="checkbox" name="" id="tablonRectamgular"> Tablon rectangular</div>
-                        <div><input type="checkbox" name="" id="tablonRedondo"> Tablon redondo</div>
-                        <input type="text" id="mesas" class="mesas" required>
+                        <div><strong><i> *NOTA: Debe seleccionar al menos una opcion</i></strong></div>
+                        <input type="checkbox" name="check" id="check" class="tablonRectamgular" onchange="javascript:showContent()"> Tablon rectangular
+                        <input type="checkbox" name="check1" id="check1" class="tablonRedondo" onchange="javascript:showContent()"> Tablon redondo
+                        <div class="mesasOpciones">
+                        <input type="text" id="mesas" class="mesas rectangulares" required>
                         <button class="btn btn-primary" id="agregarMesas">Agregar mesas</button>
                         <button class="btn btn-secondary" id="quitarMesas" >Quitar mesas</button>
+                        </div>
+                        <br>
+                        <div id="content" style="display: none;">
+                                <div class="mesasOpciones"><input type="text" id="mesas" class="circulares" placeholder="Tablon redondo">
+                                <button class="btn btn-primary" id="agregarMesas">Agregar mesas</button>
+                                <button class="btn btn-secondary" id="quitarMesas" >Quitar mesas</button>
+                        </div>
                     </div>
                     <div class="container p-4">
                         <H5>Entretenimiento</H5>
@@ -97,5 +106,27 @@
         <button type="button" class="cancelarEdicion" id="boton" >Cancelar</button>
     </div>
 </div>
+<script>
+function showContent(){
+        element = document.getElementById('content');
+        check = document.getElementById('check');
+        check1 = document.getElementById('check1');
+
+        if (check.checked && check1.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+            if(check.checked){
+                //GUARDAR VALORES DE TABLON RECTANGULAR
+            }else{
+                if(check.checked){
+                    //GUARDAR VALORES DE TABLON CIRCULAR
+                }
+            }
+        }
+      }
+
+</script>
 </body>
 </html>

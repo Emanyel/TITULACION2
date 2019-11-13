@@ -70,6 +70,9 @@ var total=0;
         document.getElementsByClassName('total').innerHTML = total;
       });
 
+      
+      
+
     $(document).on('click', '.enviarEdicion', function(e){
         e.preventDefault();
        var cliente = document.getElementsByClassName('nombreCliente').value;
@@ -155,6 +158,8 @@ var total=0;
         })
         
     });
+
+    
 
     
 });
