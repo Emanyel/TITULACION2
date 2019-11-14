@@ -11,23 +11,25 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="assets/css/small-business.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet" />
 </head>
 <body>
   <!-- Navigation -->
-  <div class="barra pad-lados">
-      <div class="nav-logo">
-          <a href="C:\ALQUILADORA\ALQUILADORA.github.io-master\index.html" class="mayusculas">
-              karina
-          </a>
-      </div>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="adjust-nav">
+         <span class="logout-spn" >
+           <a  style="color:#fff;">ALQUILADORA KARINA</a>
+         </span>
+     </div>
+     <div class="nav-logo">
+       <span class="logout-spn">
+         <a style="color:#fff;" href="index.html" class="mayusculas">
+             INVENTARIO
+         </a>
+      </span>
+     </div>
 
-  <a href="#" id="boton-resp" class="mayusculas ancla-menu"><i class="fas fa-bars"></i></a>
-
-      <div class="nav-link">
-
-          <a href="C:\ALQUILADORA\ALQUILADORA.github.io-master\inventario\index.html" class="mayusculas">Inventario</a>
-      </div>
-  </div>
+ </div>
 
   <!-- Page Content -->
   <div class="container">
@@ -56,9 +58,9 @@
           <div class="row">
   <div class="col-6">
     <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agregar</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Modificar</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Eliminar</a>
+      <a class="list-group-item list-group-item-action list-group-item-light active"  id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agregar</a>
+      <a class="list-group-item list-group-item-action list-group-item-light" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Modificar</a>
+      <a class="list-group-item list-group-item-action list-group-item-light" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Eliminar</a>
     </div>
   </div>
   </div>
@@ -97,10 +99,11 @@
                         <span class="input-group-text" id="priceshow">Precio</span>
                       </div>
                       <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                  </div>
+                      </div>
+                    <button type="button" class="btn btn-outline-danger">Guardar</button>
                 </div>
 
-                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                <div class="tab-pane fade"  id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                   <h2 class="card-title">Modificar sillas </h2>
                   <div class="input-group input-group-sm mb-3">
                       <div class="input-group-prepend">
@@ -186,7 +189,7 @@
         <!-- Copyright -->
         <!-- Grid row-->
       <div class="row py-4 d-flex align-items-center">
-        <div class="footer-copyright text-center py-3">© 2019 Copyright:ALQUILADORA KARINA
+        <div style="color:#fff;" class="footer-copyright text-center py-3">© 2019 Copyright:ALQUILADORA KARINA
           </div>
 
         <!-- Grid column -->

@@ -11,23 +11,25 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="assets/css/small-business.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet" />
 </head>
 <body>
   <!-- Navigation -->
-  <div class="barra pad-lados">
-      <div class="nav-logo">
-          <a href="C:\ALQUILADORA\ALQUILADORA.github.io-master\index.html" class="mayusculas">
-              karina
-          </a>
-      </div>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="adjust-nav">
+         <span class="logout-spn" >
+           <a  style="color:#fff;">ALQUILADORA KARINA</a>
+         </span>
+     </div>
+     <div class="nav-logo">
+       <span class="logout-spn">
+         <a style="color:#fff;" href="index.html" class="mayusculas">
+             INVENTARIO
+         </a>
+      </span>
+     </div>
 
-  <a href="#" id="boton-resp" class="mayusculas ancla-menu"><i class="fas fa-bars"></i></a>
-
-      <div class="nav-link">
-
-          <a href="C:\ALQUILADORA\ALQUILADORA.github.io-master\admin\index.html" class="mayusculas">Inventario</a>
-      </div>
-  </div>
+ </div>
 
   <!-- Page Content -->
   <div class="container">
@@ -42,49 +44,139 @@
       </div>
     </div>
 
+
     <!-- Content Row -->
     <div class="row">
-      <div class="col-md-4 mb-5">
+      <div class="col-md-6 mb-6">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-title">Nuevo Inventario</h2>
+            <h2 class="card-title">SALONES</h2>
             <p class="card-text"></p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">Nuevo</a>
-          </div>
+            <img src="C:\ALQUILADORA\ALQUILADORA.github.io-master\inventario\assets\img\partyroom.png">
+
+            </div>
+          <div class="row">
+  <div class="col-6">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action list-group-item-light active"  id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agregar</a>
+      <a class="list-group-item list-group-item-action list-group-item-light" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Modificar</a>
+      <a class="list-group-item list-group-item-action list-group-item-light" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Eliminar</a>
+    </div>
+  </div>
+  </div>
         </div>
       </div>
       <!-- /.col-md-4 -->
-      <div class="col-md-4 mb-5">
+      <div class="col-md-6 mb-6">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-title">Modificar Inventario</h2>
+            <div class="col-8">
+              <div class="tab-content align:center" id="nav-tabContent">
+
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                  <h2 class="card-title">Agregar salón </h2>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="mostrar-precio">Cubre silla</label>
+                    <select class="form-control" id="mostrar-precio">
+                          <option value="1">Sí</option>
+                          <option value="0">No</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend" id="priceshow">
+                        <span class="input-group-text" id="priceshow">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                      </div>
+                    <button type="button" class="btn btn-outline-danger">Guardar</button>
+                </div>
+
+                <div class="tab-pane fade"  id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                  <h2 class="card-title">Modificar salón </h2>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="mostrar-precio">Cubre silla</label>
+                    <select class="form-control" id="mostrar-precio">
+                          <option value="1">Sí</option>
+                          <option value="0">No</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend" id="priceshow">
+                        <span class="input-group-text" id="priceshow">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                  <h2 class="card-title">Eliminar salón </h2>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Cantidad</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="mostrar-precio">Cubre silla</label>
+                    <select class="form-control" id="mostrar-precio">
+                          <option value="1">Sí</option>
+                          <option value="0">No</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend" id="priceshow">
+                        <span class="input-group-text" id="priceshow">Precio</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                </div>
+                </div>
+            </div>
+
             <p class="card-text"></p>
           </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">Modificar</a>
-          </div>
+
         </div>
       </div>
       <!-- /.col-md-4 -->
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="card-body">
-            <h2 class="card-title">Eliminar Inventario</h2>
-            <p class="card-text"></p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">Eliminar</a>
-          </div>
-        </div>
-      </div>
+
       <!-- /.col-md-4 -->
 
     </div>
     <!-- /.row -->
 
   </div>
+  <br>
+  <br>
   <!-- /.container -->
 
   <!-- Footer -->
@@ -97,7 +189,7 @@
         <!-- Copyright -->
         <!-- Grid row-->
       <div class="row py-4 d-flex align-items-center">
-        <div class="footer-copyright text-center py-3">© 2019 Copyright:ALQUILADORA KARINA
+        <div style="color:#fff;" class="footer-copyright text-center py-3">© 2019 Copyright:ALQUILADORA KARINA
           </div>
 
         <!-- Grid column -->
@@ -105,30 +197,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-6 col-lg-7 text-center text-md-right">
 
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f white-text mr-4"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fab fa-twitter white-text mr-4"> </i>
-          </a>
-          <!-- Google +-->
-          <a class="gplus-ic">
-            <i class="fab fa-google-plus-g white-text mr-4"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fab fa-linkedin-in white-text mr-4"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fab fa-instagram white-text"> </i>
-          </a>
-
-        </div>
         <!-- Grid column -->
 
       </div>
