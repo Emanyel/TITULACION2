@@ -276,68 +276,72 @@ $(document).ready(function(){
 	}
 	
 	function cargarEventos(){
-		$.ajax({
-			url: '../php/obtenerEventos.php',
-			type: 'GET',
-		}).done(function(data){
-			if(data.length != 2){
-				var eventos = JSON.parse(data);
-				var aux = Object.keys(eventos);
-				//REEMPLAZAR BOTON AGREGAR EVENTO
-				
-				for(var i=0; i< eventos.length; i++){
-					console.log(eventos[i].id);
-				$(".divP").append(
-					"<div class='item"+eventos[i].id+" princ'>"+
-							"<div class='tarjeta-wrap' style='float: left;'  id='tarjeta-wrap'>"+
-								"<div class='tarjeta' id='tarjeta'>"+
-										"<div class='adelante card1'>"+
-												"<div class='card-block' >"+
-													"<img src='../img/1.jpg' class='card-img-top' alt='...' style=' height: 8rem; width: fill;'/>"+
-													"<div class='card-body'>"+
-														"<h5 class='card-title' id='evento'>"+eventos[i].nombre_evento +"</h5>"+
-														"<h6 class='card-subtitle mb-2 text-muted' id='precio'> $$ Precio</h6>"+
-														"<p class='card-text' id='lugar'>Lugar: "+ eventos[i].direccion+"</p>"+
-														"<p class='card-text' id='hora'>Hora: "+eventos[i].fecha+"</p>"+
-													"</div>"+
-												"</div>"+
-											"<div class='card-footer'>"+
-												"<small class='text-muted'>Last updated 3 mins ago</small>"+
-											"</div>"+
-							"</div>"+
-								"<div class='atras'>"+
-									"<div class='card-block'>"+
-											"<div class='card-body'>"+
-												"<h4 class='card-title' id='eventoAtras'>Nombre del evento</h5>"+
-												"<p class='card-text' id='solicitante'>Nombre del solicitante</p>"+
-												"<p class='card-text' id='noEmpleados'>Empleados</p>"+
-												"<p class='card-text' id='recursos'>"+eventos[i].mesas+"</p>"+
-												"<p class='card-text' id='entretenimiento'>Entretenimiento</p>"+
-												"<p class='card-text' id='musica'>Musica</p>"+
-												"<p class='card-text' id='extras'>Extras</p>"+
-											"</div>"+
-									"</div>"+
-								"</div>"+
-					"</div>"+
-				"</div>"+
-				"<div class='container p-3' id='buttons'>"+
-					"<button data-toggle='modal' data-target='#add_data_Modal' class='button1 botonnumItem'"+eventos[i].id +" id='boton'>Editar</button>"+
-					"<button class='button2 boton numItem"+eventos[i].id +"' id ='boton' >Eliminar</button>"+
-				"</div>"+
-				"</div>");
-				}
-			}else{
-				console.log("No hay eventos");
-				$('#primerDiv').replaceWith(
-					"<div class='container p-4 inicio' > <p>Aqui es donde se mostrarán todos tus eventos."+
-						 " Para agregar un nuevo evento da click en el boton y llena los campos correspondientes</p>"+
-						 "<div class='container p-4 nuevoEvento'>"+
-							 "<button class='newEvent' id='boton'>Agregar evento</button>"+
-						 "</div>"+
-					"</div>");
-			}
+		var princ = document.getElementsByClassName('princ').length;
+		
 
-		});
+			$.ajax({
+				url: '../php/obtenerEventos.php',
+				type: 'GET',
+			}).done(function(data){
+				if(data.length != 2){
+					var eventos = JSON.parse(data);
+					var aux = Object.keys(eventos);
+					//REEMPLAZAR BOTON AGREGAR EVENTO
+					
+					for(var i=0; i< eventos.length; i++){
+						console.log(eventos[i].id);
+					$(".divP").append(
+						"<div class='item"+eventos[i].id+" princ'>"+
+								"<div class='tarjeta-wrap' style='float: left;'  id='tarjeta-wrap'>"+
+									"<div class='tarjeta' id='tarjeta'>"+
+											"<div class='adelante card1'>"+
+													"<div class='card-block' >"+
+														"<img src='../img/1.jpg' class='card-img-top' alt='...' style=' height: 8rem; width: fill;'/>"+
+														"<div class='card-body'>"+
+															"<h5 class='card-title' id='evento'>"+eventos[i].nombre_evento +"</h5>"+
+															"<h6 class='card-subtitle mb-2 text-muted' id='precio'> $$ Precio</h6>"+
+															"<p class='card-text' id='lugar'>Lugar: "+ eventos[i].direccion+"</p>"+
+															"<p class='card-text' id='hora'>Hora: "+eventos[i].fecha+"</p>"+
+														"</div>"+
+													"</div>"+
+												"<div class='card-footer'>"+
+													"<small class='text-muted'>Last updated 3 mins ago</small>"+
+												"</div>"+
+								"</div>"+
+									"<div class='atras'>"+
+										"<div class='card-block'>"+
+												"<div class='card-body'>"+
+													"<h4 class='card-title' id='eventoAtras'>Nombre del evento</h5>"+
+													"<p class='card-text' id='solicitante'>Nombre del solicitante</p>"+
+													"<p class='card-text' id='noEmpleados'>Empleados</p>"+
+													"<p class='card-text' id='recursos'>"+eventos[i].mesas+"</p>"+
+													"<p class='card-text' id='entretenimiento'>Entretenimiento</p>"+
+													"<p class='card-text' id='musica'>Musica</p>"+
+													"<p class='card-text' id='extras'>Extras</p>"+
+												"</div>"+
+										"</div>"+
+									"</div>"+
+						"</div>"+
+					"</div>"+
+					"<div class='container p-3' id='buttons'>"+
+						"<button data-toggle='modal' data-target='#add_data_Modal' class='button1 botonnumItem'"+eventos[i].id +" id='boton'>Editar</button>"+
+						"<button class='button2 boton numItem"+eventos[i].id +"' id ='boton' >Eliminar</button>"+
+					"</div>"+
+					"</div>");
+					}
+				}else{
+						$('#primerDiv').replaceWith(
+							"<div class='container p-4 inicio' > <p>Aqui es donde se mostrarán todos tus eventos."+
+								" Para agregar un nuevo evento da click en el boton y llena los campos correspondientes</p>"+
+								"<div class='container p-4 nuevoEvento'>"+
+									"<button class='newEvent' id='boton'>Agregar evento</button>"+
+								"</div>"+
+							"</div>");
+				}
+	
+			});
+		
+		
 	}
 	function eliminarEvento(elementId){
 		var regex = /(\d+)/g;
