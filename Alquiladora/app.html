@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>COTIZAR</title>
-    
+
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -42,11 +42,11 @@
                         </div>
 
                         <p>Tablón redondo:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadRedondo" min="0" placeholder="Cantidad:">
                         <p>Tablón rectangular:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadRectangular" min="0" placeholder="Cantidad:">
                         <p>Sillas:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadSillas" min="0" placeholder="Cantidad:">
                         <p><span>*Cada mesa incluye 10 sillas.</span></p>
 
                         <div class="grupo-check">
@@ -55,28 +55,27 @@
                         </div>
 
                         <p>Plato Hondo:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadHondo" min="0" placeholder="Cantidad:">
                         <p>Platón:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadPlaton" min="0" placeholder="Cantidad:">
                         <p>Vaso:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadVaso" min="0" placeholder="Cantidad:">
                         <p>Cuchara:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadCuchara" min="0" placeholder="Cantidad:">
                         <p>Tenedor:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadTenedor" min="0" placeholder="Cantidad:">
                         <p>Cuchillo:</p>
-                        <input type="number" name="" id="" min="0">
+                        <input type="number" name="" id="cantidadCuchillo" min="0" placeholder="Cantidad:">
 
                         <div class="grupo-check">
                             <h3>Entretenimiento: </h3>
                             <input type="checkbox" name="" id="">
                         </div>
 
-                        <select name="" id="">
-                                <option value="value1" selected disabled>--Selecciona una opción:</option>
-                                <option value="value2">Brincolín</option>
-                                <option value="value3">Inflable</option>
-                            </select>
+                        <p>Brincolín</p>
+                        <input type="number" name="" id="brincolin" min="0" max="8" placeholder="Horas:">
+                        <p>Inflable</p>
+                        <input type="number" name="" id="inflable" min="0" max="8" placeholder="Horas:">
 
                         <div class="grupo-check">
                             <h3>Música: </h3>
@@ -84,33 +83,15 @@
                         </div>
 
                         <p>Mariachi:</p>
-                        <select name="" id="">
-                            <option value="value1" selected disabled>--Selecciona Horas:</option>
-                            <option value="value2">1</option>
-                            <option value="value3">2</option>
-                            <option value="value3">3</option>
-                            <option value="value3">4</option>
-                        </select>
+                        <input type="number" name="" id="mariachi" min="0" max="6" placeholder="Horas:">
 
                         <p>Grupo Norteño: </p>
-                        <select name="" id="">
-                            <option value="value1" selected disabled>--Selecciona Horas:</option>
-                            <option value="value2">1</option>
-                            <option value="value3">2</option>
-                            <option value="value3">3</option>
-                            <option value="value3">4</option>
-                        </select>
+                        <input type="number" name="" id="norteño" min="0" max="6" placeholder="Horas:">
 
                         <p>Dj: </p>
-                        <select name="" id="">
-                            <option value="value1" selected disabled>--Selecciona Horas:</option>
-                            <option value="value2">1</option>
-                            <option value="value3">2</option>
-                            <option value="value3">3</option>
-                            <option value="value3">4</option>
-                            <option value="value3">5</option>
-                            <option value="value3">6</option>
-                        </select>
+                        <input type="number" name="" id="dj" min="0" max="6" placeholder="Horas:">
+
+                        <!--
 
                         <div class="grupo-check">
                             <h3>Lonas: </h3>
@@ -119,9 +100,9 @@
 
                         <select name="" id="">
                             <option value="value1" selected disabled>--Selecciona Medidas:</option>
-                            <option value="value2">4x2</option>
-                            <option value="value3">4x5</option>
-                            <option value="value3">4x10</option>
+                            <option value="value2">Chica</option>
+                            <option value="value3">Mediana</option>
+                            <option value="value3">Grande</option>
                         </select>
 
                         <div class="grupo-check">
@@ -135,26 +116,30 @@
                             <option value="value3">Salón y</option>
                             <option value="value3">Salón z</option>
                         </select>
+                        -->
 
                     </fieldset>
                 </form>
 
             </div>
-            
+
             <div class="detalle-servicios">
-                    <form action="">
-                            <fieldset>
-                                <legend>Total: </legend>
-                            </fieldset>
-                        </form>
+                <div>
+                    <fieldset>
+                        <legend>Total: </legend>
+                        <div id="sumaTotal"></div>
+                        <button type="submit" class="boton-verde letra-blanca"
+                            style="border-style: none;" id="btnCalcular">Calcular</button>
+                    </fieldset>
+                    <div>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-    </div>
-
-    <script src="js/wow.min.js"></script>
-    <script>new WOW().init();</script>
-    <script src="js/menu.js"></script>
+            <script src="js/wow.min.js"></script>
+            <script>new WOW().init();</script>
+            <script src="js/cotizar.js"></script>
 
 </body>
 
