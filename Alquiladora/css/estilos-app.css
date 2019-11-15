@@ -11,8 +11,12 @@ body{
 /* GLOBALES */
 
 .contenedor{
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
+}
+
+.container{
+    padding: 1rem;
 }
 
 h1{
@@ -101,15 +105,6 @@ a{
 
 /*******  APP COTIZACIÓN   *******/
 
-@media (min-width: 768px){
-
-    .seccion-cotizar{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-   
-}
-
 .grupo-check{
     display: flex;
     justify-content: space-between;
@@ -123,6 +118,17 @@ a{
 
 select{
     margin-bottom: 2rem;
+}
+
+.contenedor-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedor-flex h2{
+    margin-bottom: 0;
 }
 
 

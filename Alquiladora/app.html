@@ -16,10 +16,9 @@
 
 <body>
 
-    <div class="container">
+    <div>
 
         <header>
-
             <div class="barra pad-lados">
                 <div class="nav-logo">
                     <a href="../index.html" class="mayusculas">
@@ -27,10 +26,9 @@
                     </a>
                 </div>
             </div>
-
         </header>
 
-        <div class="seccion-cotizar contenedor">
+        <div class="seccion-cotizar contenedor container">
             <div class="seleccionar-servicios">
                 <form action="">
                     <fieldset class="serv">
@@ -38,7 +36,6 @@
 
                         <div class="grupo-check">
                             <h3>Sillas y Mesas: </h3>
-                            <input type="checkbox" name="" id="">
                         </div>
 
                         <p>Tablón redondo:</p>
@@ -51,7 +48,6 @@
 
                         <div class="grupo-check">
                             <h3>Losa: </h3>
-                            <input type="checkbox" name="" id="">
                         </div>
 
                         <p>Plato Hondo:</p>
@@ -66,20 +62,20 @@
                         <input type="number" name="" id="cantidadTenedor" min="0" placeholder="Cantidad:">
                         <p>Cuchillo:</p>
                         <input type="number" name="" id="cantidadCuchillo" min="0" placeholder="Cantidad:">
+                        <p> </p>
 
                         <div class="grupo-check">
                             <h3>Entretenimiento: </h3>
-                            <input type="checkbox" name="" id="">
                         </div>
 
                         <p>Brincolín</p>
-                        <input type="number" name="" id="brincolin" min="0" max="8" placeholder="Horas:">
+                        <input type="checkbox" name="" id="brincolin">
                         <p>Inflable</p>
-                        <input type="number" name="" id="inflable" min="0" max="8" placeholder="Horas:">
+                        <input type="checkbox" name="" id="inflable">
+                        <p>*Se rentan por 8 horas</p>
 
                         <div class="grupo-check">
                             <h3>Música: </h3>
-                            <input type="checkbox" name="" id="">
                         </div>
 
                         <p>Mariachi:</p>
@@ -91,55 +87,40 @@
                         <p>Dj: </p>
                         <input type="number" name="" id="dj" min="0" max="6" placeholder="Horas:">
 
-                        <!--
+                        <p> </p>
 
                         <div class="grupo-check">
-                            <h3>Lonas: </h3>
-                            <input type="checkbox" name="" id="">
+                            <h3>Carpa: </h3>
                         </div>
 
-                        <select name="" id="">
-                            <option value="value1" selected disabled>--Selecciona Medidas:</option>
-                            <option value="value2">Chica</option>
-                            <option value="value3">Mediana</option>
-                            <option value="value3">Grande</option>
-                        </select>
+                        <input type="checkbox" name="" id="lona">
+                        <p> </p>
+
 
                         <div class="grupo-check">
                             <h3>Salón: </h3>
-                            <input type="checkbox" name="" id="">
                         </div>
 
-                        <select name="" id="">
-                            <option value="value1" selected disabled>--Selecciona Salón:</option>
-                            <option value="value2">Salón x</option>
-                            <option value="value3">Salón y</option>
-                            <option value="value3">Salón z</option>
-                        </select>
-                        -->
+                        <input type="checkbox" name="" id="salon">
 
                     </fieldset>
                 </form>
 
             </div>
 
-            <div class="detalle-servicios">
-                <div>
-                    <fieldset>
-                        <legend>Total: </legend>
-                        <div id="sumaTotal"></div>
-                        <button type="submit" class="boton-verde letra-blanca"
-                            style="border-style: none;" id="btnCalcular">Calcular</button>
-                    </fieldset>
-                    <div>
-                    </div>
-                </div>
-
+            <div class="contenedor-flex">
+                <h2>Total: </h2>
+                <h1 id="sumaTotal">$0 MXM</h1>
+                <button type="submit" class="boton-verde letra-blanca" style="border-style: none;"
+                    id="btnCalcular">Calcular</button>
             </div>
 
-            <script src="js/wow.min.js"></script>
-            <script>new WOW().init();</script>
-            <script src="js/cotizar.js"></script>
+        </div>
+    </div>
+
+    <script src="js/wow.min.js"></script>
+    <script>new WOW().init();</script>
+    <script src="js/cotizar.js"></script>
 
 </body>
 
