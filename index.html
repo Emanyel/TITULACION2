@@ -102,19 +102,19 @@
         <div class="contacto" id="seccion-5">
             <h3 class="centrar-texto gris mayusculas">Contáctanos para más información</h3>
 
-            <form class="formulario">
+            <form class="formulario" method="POST" action="enviar2.php">
                 <fieldset>
                     <legend>Contacto</legend>
                     <label for="nombre">Nombre:</label>
-                    <input type="text" name="" id="nombre" placeholder="Introduce tu Nombre" required>
+                    <input type="text" name="nombreC" id="nombre" placeholder="Introduce tu Nombre" required>
                     <label for="correo">Correo:</label>
-                    <input type="email" name="" id="correo" placeholder="Introduce tu E-mail" required>
+                    <input type="email" name="correoC" id="correo" placeholder="Introduce tu E-mail" required>
                     <label for="telefono">Teléfono:</label>
-                    <input type="tel" name="" id="telefono" placeholder="Introduce tu Teléfono" required>
+                    <input type="tel" name="telefonoC" id="telefono" placeholder="Introduce tu Teléfono" required>
                     <label for="asunto">Asunto:</label>
-                    <input type="text" name="" id="asunto" placeholder="Introduce el Asunto" required>
+                    <input type="text" name="asuntoC" id="asunto" placeholder="Introduce el Asunto" required>
                     <label for="mensaje">Mensaje:</label>
-                    <textarea name="" id="mensaje" placeholder="Introduce tu Mensaje..." required></textarea>
+                    <textarea name="mensajeC" id="mensaje" placeholder="Introduce tu Mensaje..." required></textarea>
                     <button type="submit" class="boton-verde letra-blanca wow animated bounceIn" id="enviar">ENVIAR</button>
                 </fieldset>
             </form>
