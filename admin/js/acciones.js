@@ -13,7 +13,16 @@ $(document).ready(function(){
 
 		//ACCCION PARA EL BOTON EDITAR
 	$(document).on('click', '.button1', function(){
-		window.open('../html/edicion.html', '_blank');
+		element = $(this).attr("class");
+		console.log(element);
+		elementId = element.substr(20, element.length-2);
+		console.log(elementId);
+
+		var regex = /(\d+)/g;
+		var aux1 = elementId.match(regex);
+		console.log(aux1);
+	
+		window.open('../html/edicion.html?id=' + aux1, '_blank');
 	});
 		//ACCCION PARA EL BOTON ELIMINAR
 	$(document).on('click', '.button2', function(){
@@ -90,7 +99,6 @@ $(document).ready(function(){
 							numItem = respuesta.id;
 							evento = respuesta.nombreEvento;
 							lugar = respuesta.fecha;
-							cargarEventos();
 							nuevaTarjeta(numItem, evento, lugar);
 							Swal.fire({
 								type: 'success',
@@ -220,9 +228,6 @@ $(document).ready(function(){
 				'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1 boton'+numItem+'" id="boton">Editar</button>'+
 				'<button class="button2 boton '+numItem+'" id ="boton" >Eliminar</button>'+
 			'</div>'+
-		'</div>'+
-		'<div class="nuevoEvento">'+
-				'<button class="btn btn-success newEvent" id="boton">Agregar evento</button>'+
 		'</div>');
 
 		}else{
@@ -262,7 +267,7 @@ $(document).ready(function(){
 					'</div> <!-- fin de tarjeta -->'+
 				'</div> <!-- fin de tarjeta wrap -->'+
 				'<div class="container p-3 cajaBotones" id="buttons">'+
-					'<button name="age"  data-toggle="modal" data-target="#add_data_Modal" class="button1" id="boton">Editar</button>'+
+					"<button name='age'  data-toggle='modal' data-target='#add_data_Modal' class='button1 botonnumItem'"+numItem+" id='boton'>Editar</button>"+
 					'<button class="button2 "'+numItem+' id ="boton" >Eliminar</button>'+
 				'</div>'+
 			'</div>'+
@@ -276,19 +281,20 @@ $(document).ready(function(){
 	}
 	
 	function cargarEventos(){
+		$("div").remove(".entradas");
 		var princ = document.getElementsByClassName('princ').length;
 		
-
 			$.ajax({
 				url: '../php/obtenerEventos.php',
 				type: 'GET',
 			}).done(function(data){
 				if(data.length != 2){
 					var eventos = JSON.parse(data);
-					var aux = Object.keys(eventos);
+					var aux = Object.keys(eventos).length;
+					console.log(aux);
 					//REEMPLAZAR BOTON AGREGAR EVENTO
 					
-					for(var i=0; i< eventos.length; i++){
+					for(var i=0; i< aux; i++){
 						console.log(eventos[i].id);
 					$(".divP").append(
 						"<div class='item"+eventos[i].id+" princ'>"+
@@ -311,7 +317,7 @@ $(document).ready(function(){
 									"<div class='atras'>"+
 										"<div class='card-block'>"+
 												"<div class='card-body'>"+
-													"<h4 class='card-title' id='eventoAtras'>Nombre del evento</h5>"+
+													"<h4 class='card-title' id='eventoAtras'>"+eventos[i].nombre_evento +"</h5>"+
 													"<p class='card-text' id='solicitante'>Nombre del solicitante</p>"+
 													"<p class='card-text' id='noEmpleados'>Empleados</p>"+
 													"<p class='card-text' id='recursos'>"+eventos[i].mesas+"</p>"+
@@ -324,11 +330,14 @@ $(document).ready(function(){
 						"</div>"+
 					"</div>"+
 					"<div class='container p-3' id='buttons'>"+
-						"<button data-toggle='modal' data-target='#add_data_Modal' class='button1 botonnumItem'"+eventos[i].id +" id='boton'>Editar</button>"+
+						"<button data-toggle='modal' data-target='#add_data_Modal' class='button1 botonnumItem"+eventos[i].id +"' id='boton'>Editar</button>"+
 						"<button class='button2 boton numItem"+eventos[i].id +"' id ='boton' >Eliminar</button>"+
 					"</div>"+
 					"</div>");
-					}
+					} //AGREGAR BOTON NUEVO EVENTO
+					/*<div class="nuevoEvento">
+						<button class="btn btn-success newEvent" id="boton">Agregar evento</button>
+					</div>*/
 				}else{
 						$('#primerDiv').replaceWith(
 							"<div class='container p-4 inicio' > <p>Aqui es donde se mostrarán todos tus eventos."+
@@ -343,6 +352,7 @@ $(document).ready(function(){
 		
 		
 	}
+
 	function eliminarEvento(elementId){
 		var regex = /(\d+)/g;
 		var aux = elementId.match(regex);

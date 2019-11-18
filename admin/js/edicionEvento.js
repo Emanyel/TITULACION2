@@ -1,4 +1,8 @@
 $(document).ready(function(){
+//PBTENEMOS EL ID PARA PODER HACER LAS ACTUALIZACIONES EN LA BD
+    id = getParameterByName("id");
+    console.log(id);
+
 var total=0;
     $('input[name=direccion]').prop("disabled",true);
 	$('input[name="fecha"]').prop("disabled", true);
@@ -159,7 +163,55 @@ var total=0;
         
     });
 
-    
+    $(document).on("click",".clienteData",function(){
+        var cliente = $(".nombreCliente").val();
+        var apellido =  $(".apellido").val();
+        var contacto = $(".numeroContacto").val();
+        var correo = $(".correo").val();
+        
+        if(cliente== "" || apellido == "" || contacto == "" || correo == "" ){
+            Swal.fire({
+                type: 'error',
+                text: 'Llena todos los campos',
+                showConfirmButton: true,
+                confirmButtonText: 'Ok'
+            })
+        }else{
+            clientes = {"id": id, "cliente": cliente, "apellidos": apellido, "telefono": contacto, "correo": correo};
+            $.ajax({
+                url: '../php/clientes.php',
+                type: 'POST',
+                data: clientes
+            }).done(function(respuesta){
+                if(respuesta.estado == "ok"){
+
+                }
+            });
+        }
+    });
+
+    function cargarCliente(){
+
+
+        $.ajax({
+            url:'../php/cargarEdicion.php',
+            type:'GET',
+            data : ids
+        }).done(function(respuesta){
+            if(respuesta == 'ok'){
+
+            }
+
+        });
+    }
+
+    //OBTENER ID DE URL
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
 
     
 });

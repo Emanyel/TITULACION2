@@ -22,12 +22,15 @@
             <link rel="stylesheet" href="../css/editarEvento.css">
             <link rel="stylesheet" href="../css/IconosParteTrasera.css">
             <link rel="stylesheet" href="../css/styles.css">
+            <link rel="stylesheet" href="../themes/blue/pace-theme-minimal.css">
+            <script src="pace.js"></script>
             <script src="../js/acciones.js"></script>
             <script src="../js/edicionEvento.js"></script>
 </head>
 <body>
 <div class="container p-4">
         <div id="edicion">
+            
             <div class="container p-4"id="contacto">
                     <h3>Contacto del cliente</h3>
                     <label for="">Nombre(s) del cliente</label>
@@ -35,10 +38,14 @@
                     <label for="">Apellido(s)</label>
                     <div class="form-group"><input type="text" class="apellido" placeholder="p. ej. Hernandez Serrano" required/></div>
                     <label for="">Número de contacto</label>
-                    <div class="form-group"><input type="text" class="numeroContacto" class="telefono" placeholder="p. ej. 55151656"  required/></div>
+                    <div class="form-group"><input type="text" class="numeroContacto"  placeholder="p. ej. 55151656"  required/></div>
                     <label for="">Correo electrónico</label>
-                    <div class="form-group"><input type="email" class="correo" class="correo" placeholder="p. ej. alguien@gmail.com" required/></div>
+                    <div class="form-group"><input type="email" class="correo"  placeholder="p. ej. alguien@gmail.com" required/></div>
+                    <button class="btn btn-primary clienteData" id="">Editar</button>
+                    <button class="btn btn-primary" id="">Cancelar</button>
             </div>
+            
+            
             <div class="container p-4" id="parteDelantera">
                 <h3>Parte delantera de la tarjeta</h3>
                 <label for="">Nombre del evento</label>
