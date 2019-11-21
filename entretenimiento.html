@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alquiladora Karina</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="Alquiladora/css/normalize.css">
+    <link rel="stylesheet" href="Alquiladora/css/animate.css">
+    <link rel="stylesheet" href="Alquiladora/css/estilos.css">
+	<link rel="stylesheet" href="Alquiladora/css/stilos.css">
+	<link rel="stylesheet" href="Alquiladora/css/font.css">
+</head>
+<body>
+  <div class="container">
+
+        <header class="contenido-header">
+
+            <div class="barra pad-lados">
+                <div class="nav-logo">
+                    <a href="index.html" class="mayusculas">
+                        karina
+                    </a>
+                </div>
+
+            <a href="#" id="boton-resp" class="mayusculas ancla-menu"><i class="fas fa-bars"></i></a>
+
+                <div class="nav-link">
+                    <a href=".../index.html#seccion-1" class="mayusculas anc" class="desaparece">Inicio</a>
+                    <a href="index.html#seccion-2" class="mayusculas anc" class="desaparece">Nosotros</a>
+                    <a href="index.html#seccion-3" class="mayusculas anc" class="desaparece">Servicios</a>
+                    <a href="index.html#seccion-4" class="mayusculas anc" class="desaparece">Cotizar</a>
+                    <a href="index.html#seccion-5" class="mayusculas anc" class="desaparece">Contacto</a>
+                    <a href="./admin/index.html" class="mayusculas">Administrador</a>
+                </div>
+            </div>
+		</header>
+		<div class="main">
+			<div class="slides">
+				<img src="Alquiladora\img\brincolin.jpg" ALT="Brincolin">
+				<img src="Alquiladora\img\infla.jpg" ALT="Inflable">
+				<img src="Alquiladora\img\b.jpg" ALT="">
+				<img src="Alquiladora\img\castillo.jpg" ALT="">
+				<img src="Alquiladora\img\precioentre.jpg" ALT="">
+
+			</div>
+		</div>
+	<script src="Alquiladora/js/jquery-1.9.1.min.js"></script>
+	<script src="Alquiladora/js/jquery.slides.js"></script> 
+	<script>
+		$(function(){
+			$(".slides").slidesjs({
+				play: {
+				  active: true,
+					// [boolean] Generate the play and stop buttons.
+					// You cannot use your own buttons. Sorry.
+				  effect: "slide",
+					// [string] Can be either "slide" or "fade".
+				  interval: 3000,
+					// [number] Time spent on each slide in milliseconds.
+				  auto: true,
+					// [boolean] Start playing the slideshow on load.
+				  swap: true,
+					// [boolean] show/hide stop and play buttons
+				  pauseOnHover: false,
+					// [boolean] pause a playing slideshow on hover
+				  restartDelay: 2500
+					// [number] restart delay on inactive slideshow
+				}
+		  });
+		});
+ 
+	</script>
+</body>
