@@ -112,6 +112,10 @@ a{
     border-top: 2px solid gray;
 }
 
+fieldset input{
+    width: 50%;
+}
+
 .serv{
     padding: 5rem;
 }
