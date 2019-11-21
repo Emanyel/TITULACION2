@@ -99,14 +99,16 @@ $(document).ready(function(){
 							numItem = respuesta.id;
 							evento = respuesta.nombreEvento;
 							lugar = respuesta.fecha;
-							nuevaTarjeta(numItem, evento, lugar);
+							
 							Swal.fire({
 								type: 'success',
 								title: 'Has creado un evento nuevo',
 								showConfirmButton: true,
 								confirmButtonText: "Ok"
 							  })
+							  
 							console.log(JSON.stringify(respuesta));
+							location.reload();
 						}else{
 							Swal.fire({
 								type: 'error',
@@ -335,9 +337,12 @@ $(document).ready(function(){
 					"</div>"+
 					"</div>");
 					} //AGREGAR BOTON NUEVO EVENTO
-					/*<div class="nuevoEvento">
-						<button class="btn btn-success newEvent" id="boton">Agregar evento</button>
-					</div>*/
+					
+					$(".divP").append(
+						'<div class="nuevoEvento">'+
+							'<button class="btn btn-success newEvent" id="boton">Agregar evento</button>'+
+						"</div>"
+						);
 				}else{
 						$('#primerDiv').replaceWith(
 							"<div class='container p-4 inicio' > <p>Aqui es donde se mostrarán todos tus eventos."+
@@ -364,12 +369,19 @@ $(document).ready(function(){
 			data: data
 		}).done(function(respuesta){
 			if(respuesta.estado === 'ok'){
-				$("div.item"+aux.toString()).replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
-				Swal.fire(
-					'Borrado!',
-					'El evento ha sido borrado',
-					'success'
-				  )		
+				 var nuevoEven = document.getElementsByClassName('nuevoEvento').length;
+				 console.log(nuevoEven);
+				if( nuevoEven != 1){
+					$("div.item"+aux.toString()).replaceWith("<div class='nuevoEvento'><button id='boton' class='newEvent'>Agregar evento</button></div>");
+				}else{
+					$("div.item"+aux.toString()).remove();
+					Swal.fire(
+						'Borrado!',
+						'El evento ha sido borrado',
+						'success'
+					  )	
+				}
+					
 			}else{
 				Swal.fire({
 					type: 'error',

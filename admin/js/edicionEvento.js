@@ -3,21 +3,57 @@ $(document).ready(function(){
     id = getParameterByName("id");
     console.log(id);
 
-var total=0;
-    $('input[name=direccion]').prop("disabled",true);
-	$('input[name="fecha"]').prop("disabled", true);
-    $('input[name="evento"]').prop("disabled", true);
+    $("button").removeClass("cancelarData");
+    var total=0;
+
+    $(".direccion").prop("disabled", true);
+    $(".fecha").prop("disabled", true);
+    $(".evento").prop("disabled", true);
+
+    $('.nombreCliente').prop("disabled",true);
+    $('.apellido').prop("disabled", true);
+    $(".numeroContacto").prop('disabled', true);
+    $('.correo').prop("disabled", true);
     
-    $(document).on('click', '#editarDelantera', function(){
-        $('input[name=direccion]').prop("disabled", false);
-        $('input[name="fecha"]').prop("disabled", false);
-        $('input[name="evento"]').prop("disabled", false);
+    $(document).on('click', '.editarDelantera', function(){
+        Swal.fire({
+            title: 'Quieres editar?',
+            text: "Si quieres editar la info del cliente da click!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, quiero editar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                limpiarDelantera();
+                $(".direccion").prop("disabled", false);
+                $(".fecha").prop("disabled", false);
+                $(".evento").prop("disabled", false);
+            }
+        })
+        
     });
 
-    $(document).on('click', '#cancelarDelantera', function(){
-        $('input[name=direccion]').prop("disabled", true);
-        $('input[name="fecha"]').prop("disabled", true);
-        $('input[name="evento"]').prop("disabled", true);
+    $(document).on('click', '.cancelarDelantera', function(){
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: "Ningun cambio sera guardado",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                $(".direccion").prop("disabled", true);
+                $(".fecha").prop("disabled", true);
+                $(".evento").prop("disabled", true);
+            }
+        })
+        
     });
     
     var contador = 0;
@@ -25,10 +61,12 @@ var total=0;
         document.getElementById('sillas').value = ++contador;
 
     });
+
     $(document).on('click', '#quitarSillas', function(){
         document.getElementById('sillas').value = --contador;
         
     });
+
     var contador1 = 0
     $(document).on('click', '#agregarMesas', function(){
         document.getElementById('mesas').value = ++contador1;
@@ -40,6 +78,8 @@ var total=0;
         console.log(mesasN);
 
     });
+
+
     $(document).on('click', '#quitarMesas', function(){
         document.getElementById('mesas').value = --contador1;
         //CALCULAMOS LA CANTIDAD DE SILLAS UTILIZADAS
@@ -50,32 +90,32 @@ var total=0;
         console.log(total);
     });
 
-        $(".mesas").change(function(){
-            var vals = $(this).val();
-            sillasNum = vals * 10;
-            total = total+ vals;
-            document.getElementsByClassName('total').innerHTML = total;
-            console.log(mesasNum);
-            console.log(total);
-        });
+    $(".mesas").change(function(){
+        var vals = $(this).val();
+        sillasNum = vals * 10;
+        total = total+ vals;
+        document.getElementsByClassName('total').innerHTML = total;
+        console.log(mesasNum);
+        console.log(total);
+    });
 
-        $(".sillas").change(function(){
-            var vals = $(this).val();
-            console.log(vals);
-        });
+    $(".sillas").change(function(){
+        var vals = $(this).val();
+        console.log(vals);
+    });
+
     $(document).on('click', '.inflable', function(){
         total = total+350;
         console.log(total);
         document.getElementsByClassName('total').innerHTML = total;
     });
+
+
     $(document).on('click', '.brincolin', function () {
         total = total+450;
         console.log(total);
         document.getElementsByClassName('total').innerHTML = total;
       });
-
-      
-      
 
     $(document).on('click', '.enviarEdicion', function(e){
         e.preventDefault();
@@ -164,6 +204,32 @@ var total=0;
     });
 
     $(document).on("click",".clienteData",function(){
+        
+        Swal.fire({
+            title: 'Quieres editar?',
+            text: "Si quieres editar la info del cliente da click!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, quiero editar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                $('.nombreCliente').prop("disabled",false);
+                $('.apellido').prop("disabled", false);
+                $(".numeroContacto").prop('disabled', false);
+                $('.correo').prop("disabled", false);
+                limpiar();
+                $(this).removeClass( "clienteData" );
+                $(this).addClass("editarCliente");
+                $("#cancel").addClass("cancelarData");
+                
+            }
+        })
+    });
+
+    $(document).on("click", ".editarCliente", function(){
         var cliente = $(".nombreCliente").val();
         var apellido =  $(".apellido").val();
         var contacto = $(".numeroContacto").val();
@@ -185,10 +251,46 @@ var total=0;
             }).done(function(respuesta){
                 if(respuesta.estado == "ok"){
 
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+
+                    $('.nombreCliente').prop("disabled",true);
+                    $('.apellido').prop("disabled", true);
+                    $(".numeroContacto").prop('disabled', true);
+                    $('.correo').prop("disabled", true);
                 }
             });
         }
+    
+  
     });
+
+    $(document).on("click", ".cancelarData", function(){
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: "No se guardara ningun cambio",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                $('.nombreCliente').prop("disabled",true);
+                $('.apellido').prop("disabled", true);
+                $(".numeroContacto").prop('disabled', true);
+                $('.correo').prop("disabled", true);
+            }
+        })
+    });
+
+    $()
 
     function cargarCliente(){
 
@@ -213,5 +315,20 @@ var total=0;
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
-    
+    function limpiar(){
+        $(".nombreCliente").val("");
+        $(".apellido").val("");
+        $(".numeroContacto").val("");
+        $(".correo").val("");
+        
+    }
+
+    function limpiarDelantera(){
+        $(".direccion").val("");
+        $(".fecha").val("");
+        $(".evento").val("");
+
+    }
+
+
 });

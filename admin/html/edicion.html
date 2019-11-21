@@ -34,15 +34,15 @@
             <div class="container p-4"id="contacto">
                     <h3>Contacto del cliente</h3>
                     <label for="">Nombre(s) del cliente</label>
-                    <div class="form-group"><input type="text" class="nombreCliente" placeholder="p. ej. Juan Carlos" required/></div>
+                    <div class="form-group"><input type="text" class="nombreCliente" placeholder="p. ej. Juan Carlos" required/></div><div class="client"></div>
                     <label for="">Apellido(s)</label>
-                    <div class="form-group"><input type="text" class="apellido" placeholder="p. ej. Hernandez Serrano" required/></div>
+                    <div class="form-group"><input type="text" class="apellido" placeholder="p. ej. Hernandez Serrano" required/></div><div class="apell"></div>
                     <label for="">Número de contacto</label>
-                    <div class="form-group"><input type="text" class="numeroContacto"  placeholder="p. ej. 55151656"  required/></div>
+                    <div class="form-group"><input type="text" class="numeroContacto"  placeholder="p. ej. 55151656"  required/></div><div class="contact"></div>
                     <label for="">Correo electrónico</label>
-                    <div class="form-group"><input type="email" class="correo"  placeholder="p. ej. alguien@gmail.com" required/></div>
-                    <button class="btn btn-primary clienteData" id="">Editar</button>
-                    <button class="btn btn-primary" id="">Cancelar</button>
+                    <div class="form-group"><input type="email" class="correo"  placeholder="p. ej. alguien@gmail.com" required/></div><div class="email"></div>
+                    <button class="btn btn-primary clienteData">Editar</button>
+                    <button class="btn btn-primary cancelarData" id="cancel" >Cancelar</button>
             </div>
             
             
@@ -58,8 +58,8 @@
                     <label for="">Selecciona cuando sera el evento</label>
                     <div class="form-group">
                         <input type="date" class="fecha" placeholder="dd/mm/yyyy" disabled required/></div>
-            <button class="btn btn-primary" id="editarDelantera">Editar</button>
-            <button class="btn btn-primary" id="cancelarDelantera">Cancelar</button>
+            <button class="btn btn-primary editarDelantera" >Editar</button>
+            <button class="btn btn-primary cancelarDelantera" >Cancelar</button>
             </div>
         </div>
         <div class="container p-4"id="parteTrasera">
@@ -86,11 +86,22 @@
                     </div>
                     <div class="container p-4">
                         <H5>Entretenimiento</H5>
-                        <div class="inflable"><img src="../img/inflable.jpg" alt="" width="150px" height="150px"></div> 
-                        <div class="brincolin"><img src="../img/broncolin.jpg" alt="" width="150px" height="150px"></div>
+                        <div class="inflable"><img src="../img/inflable.jpg" alt="" width="150px" height="150px">
+                        <input type="checkbox" name="" id=""> Inflable
+                        </div> 
+                        <div class="brincolin"><img src="../img/broncolin.jpg" alt="" width="150px" height="150px">
+                        <input type="checkbox"> Trampolin
+                        </div>
                     </div>
+
                     <div class="container p-4">
                         <h5>Musica</h5>
+                        <div class="dj"><img src="../img/dj.gif" alt="dj" width="150px" height="150px"><input type="checkbox" id="dj" onchange="javascript:showContent2()"> DJ</div>
+                        <div id="horasDJ" style="display: none;"><label for="">Asigna las horas:</label> <input type="number" class="dj"/></div><br>
+                        <div class="norteno"><img src="../img/norteno.webp" alt="norteno" width="150px" height="150px"><input type="checkbox" name="check" id="norteno" onchange="javascript:showContent2()"> Norteno</div>
+                        <div id="horasNorteno" style="display: none;"><label for="">Asigna las horas:</label> <input type="number" class="norteno"/></div><br>
+                        <div class="mariachi"><img src="../img/mariachi.webp" alt="mariachi" width="150px" height="150px"><input type="checkbox" name="check" id="mariachi" onchange="javascript:showContent2()"> Mariachi</div>
+                        <div id="horasMariachi" style="display: none;"><label for="">Asigna las horas:</label> <input type="number" class="mariachi"/></div><br>
                     </div>
                     <div class="container p-4">
                         <h5>Extras</h5>
@@ -114,6 +125,7 @@
     </div>
 </div>
 <script>
+    
 function showContent(){
         element = document.getElementById('content');
         check = document.getElementById('check');
@@ -132,7 +144,39 @@ function showContent(){
                 }
             }
         }
-      }
+}
+
+function showContent2(){
+
+    divDJ = document.getElementById('horasDJ');
+    divNorteno = document.getElementById('horasNorteno');
+    divMariachi = document.getElementById('horasMariachi');
+
+        dj = document.getElementById('dj');
+        norteno = document.getElementById('norteno');
+        mariachi = document.getElementById('mariachi');
+       
+
+        if (dj.checked) {
+            divDJ.style.display='block';
+        }else{
+            divDJ.style.display='none';
+        }
+
+        if(norteno.checked){
+            divNorteno.style.display='block';
+        }else{
+            divNorteno.style.display='none';
+        }
+        if(mariachi.checked){
+            divMariachi.style.display='block';
+        }else{
+            divMariachi.style.display='none';
+
+        }
+
+       
+}
 
 </script>
 </body>
